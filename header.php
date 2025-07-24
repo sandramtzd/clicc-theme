@@ -27,3 +27,4 @@
       </nav>
     </div>
   </header>
+  <?php echo "HEADER IS LOADING"; ?>
