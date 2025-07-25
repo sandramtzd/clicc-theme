@@ -1,6 +1,5 @@
-<?php echo "<!-- HEADER IS LOADING -->"; ?>
 <?php get_header(); ?>
-
+<?php get_template_part('template-parts/hero'); ?>
 <main>
   <?php
     if ( have_posts() ) :

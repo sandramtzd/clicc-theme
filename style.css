@@ -22,7 +22,7 @@ Version: 1.0
 }
 
 .site-logo svg {
-  height: 40px; /* adjust to your design */
+  height: 40px; 
   width: auto;
 }
 
@@ -42,4 +42,38 @@ Version: 1.0
 
 .nav-menu li a:hover {
   color: #0073aa; 
+}
+
+/*Hero Style*/
+
+.hero {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+.hero-bg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 90%;
+}
+
+.hero-button {
+  background-color: #f3629e;
+  padding: 0.75em 1.5em;
+  border: none;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 4px;
+  display: inline-block;
+  margin-top: 1em;
 }

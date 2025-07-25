@@ -10,3 +10,4 @@ function clicc_register_menus() {
   ) );
 }
 add_action( 'init', 'clicc_register_menus' );
+
