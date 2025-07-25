@@ -77,3 +77,62 @@ Version: 1.0
   display: inline-block;
   margin-top: 1em;
 }
+
+/*Clubs Section*/
+
+.clubs-section {
+  padding: 60px 20px;
+  background-color: #f9f9f9;
+}
+
+.clubs-section h2 {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.clubs-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Switch to row layout on wider screens */
+@media (min-width: 768px) {
+  .clubs-grid {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.club-card {
+  flex: 1;
+  padding: 20px;
+  border-radius: 16px;
+  color: white;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.club-link {
+  display: inline-block;
+  margin-top: 15px;
+  background: white;
+  color: inherit;
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* Background colors per club */
+.club-breakfast {
+  background-color: #f9a825; /* yellow */
+}
+
+.club-after {
+  background-color: #2e7d32; /* green */
+}
+
+.club-holiday {
+  background-color: #0288d1; /* blue */
+}
