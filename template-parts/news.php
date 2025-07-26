@@ -1,6 +1,6 @@
 <section class="news-section">
+  <h2>Latest News</h2>
   <div class="container">
-    <h2>Latest News</h2>
     <div class="news-grid">
       <?php
       $news_query = new WP_Query(array(

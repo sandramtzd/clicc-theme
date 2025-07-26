@@ -5,7 +5,7 @@
 <?php get_template_part('template-parts/news'); ?>
 
 <main>
-  <?php
+  <?php /*
     if ( have_posts() ) :
       while ( have_posts() ) : the_post();
         the_title( '<h2>', '</h2>' );
@@ -14,7 +14,7 @@
     else :
       echo '<p>No content found</p>';
     endif;
-  ?>
+  */?>
 </main>
 
 <?php get_footer(); ?>
