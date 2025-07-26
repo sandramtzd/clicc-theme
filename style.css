@@ -136,3 +136,100 @@ Version: 1.0
 .club-holiday {
   background-color: #0288d1; /* blue */
 }
+
+/* Services */
+
+.services {
+  padding: 4rem 2rem;
+  background-color: #f9f9f9;
+}
+
+.services h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+}
+
+.services-grid {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.service-card {
+  background-color: #dceef5;
+  padding: 2rem;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 300px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+@media (min-width: 768px) {
+  .services-grid {
+    flex-wrap: nowrap;
+  }
+
+  .service-card {
+    width: 30%;
+  }
+}
+
+/* Services */
+
+/* News Section */
+
+.news-section {
+  padding: 4rem 2rem;
+  background-color: #fff9f5;
+}
+
+.news-section h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+}
+
+.news-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.news-card {
+  background-color: #fff;
+  border: 1px solid #eee;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.news-card h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.read-more {
+  display: inline-block;
+  margin-top: 1rem;
+  color: #f3629e;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.read-more:hover {
+  text-decoration: underline;
+}
+
+@media (min-width: 768px) {
+  .news-grid {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .news-card {
+    width: 30%;
+  }
+}
