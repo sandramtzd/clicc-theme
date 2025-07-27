@@ -7,76 +7,287 @@ Description: A custom theme for CLICC built from Figma wireframes.
 Version: 1.0
 */
 
-.site-header {
-  background: #fff;
-  border-bottom: 1px solid #eee;
-  padding: 1rem 0;
+/* ===== Variables and Base Setup ===== */
+@import url('https://fonts.googleapis.com/css2?family=Catamaran:wght@400;600&family=Montserrat:wght@400;700&display=swap');
+
+:root {
+  /* Colors */
+  --color-blue-sky: #6ec1e4;
+  --color-soft-purple: #a28ad6;
+  --color-leaf-green: #88c070;
+  --color-warm-yellow: #f3c969;
+  --color-coral: #f67280;
+  --color-charcoal: #333333;
+  --color-white: #ffffff;
+
+  /* Fonts */
+  --font-primary: 'Montserrat', sans-serif;
+  --font-secondary: 'Catamaran', sans-serif;
+
+  /* Spacing scale */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 2rem;
+  --space-xl: 3rem;
 }
 
+/* Reset & Box sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 100%; /* 16px base */
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+  font-family: var(--font-primary);
+}
+
+/* Responsive typography base */
+body {
+  font-size: 1rem; /* 16px */
+}
+
+
+/* Utility Classes */
 .container {
+  width: 90%;
   max-width: 1200px;
-  margin: 0 auto;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.grid {
+  display: grid;
+  gap: var(--space-md);
+}
+
+/* Mobile-first spacing utilities */
+.mt-md {
+  margin-top: var(--space-md);
+}
+
+.mb-md {
+  margin-bottom: var(--space-md);
+}
+
+.pt-md {
+  padding-top: var(--space-md);
+}
+
+.pb-md {
+  padding-bottom: var(--space-md);
+}
+
+/* Responsive media queries (min-width: 768px) */
+@media (min-width: 768px) {
+  html {
+    font-size: 112.5%; /* ~18px */
+  }
+}
+
+/* Header base */
+.site-header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  background-color: transparent;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  align-items: center;
+}
+
+.site-header.scrolled {
+  background-color: #2d2d2d; /* charcoal */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+/* Layout */
+.site-header .container {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 1rem 0;
 }
 
+/* Logo */
 .site-logo svg {
-  height: 80px; 
+  height: 55px;
   width: auto;
 }
 
-.nav-menu {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  gap: 2rem;
+/* Phone icon (only visible on mobile) */
+.phone-icon {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .phone-icon {
+    display: block;
+    margin-right: 1rem;
+  }
+
+  .site-navigation {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: #2d2d2d;
+    padding: 1rem;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .site-navigation.open {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+}
+
+@media (min-width: 769px) {
+  .menu-toggle,
+  .phone-icon {
+    display: none;
+  }
+
+  .site-navigation {
+    display: block !important;
+  }
+
+  .nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+  }
 }
 
 .nav-menu li a {
+  font-family: var(--font-primary);
+  font-weight: 600; /* semi-bold */
+  text-decoration: none; /* optional, removes underline if any */
+  color: white;
   text-decoration: none;
-  color: #333;
-  font-weight: 600;
 }
 
-.nav-menu li a:hover {
-  color: #0073aa; 
-}
-
-/*Hero Style*/
-
-.hero {
-  position: relative;
-  text-align: center;
+.site-header.scrolled .nav-menu li a {
   color: white;
 }
 
-.hero-bg {
+/* ========== Hero Section ========== */
+.hero {
+  position: relative;
   width: 100%;
-  height: auto;
-  display: block;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .hero-overlay {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  max-width: 90%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+  color: white;
+  text-align: center;
 }
 
+/* Main title */
+.hero-overlay h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: clamp(3rem, 5vw, 3.5rem);
+  line-height: 1.2;
+  letter-spacing: -0.05em;
+  margin: 0 0 1rem 0;
+}
+
+/* Supporting text */
+.hero-overlay p {
+  margin: 0.5rem 0 0;
+  line-height: 1.4;
+}
+
+/* Line-specific fonts */
+.line-montserrat {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-size: clamp(2rem, 2.5vw, 1.5rem);
+  letter-spacing: -0.05em;
+}
+
+.line-catamaran {
+  font-family: 'Catamaran', sans-serif;
+  font-weight: 700;
+  font-size: clamp(1.5rem, 2.5vw, 1.5rem);
+}
+
+/* Call-to-action button */
 .hero-button {
-  background-color: #f3629e;
+  background-color: var(--color-coral);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-size: clamp(0.9rem, 2.2vw, 1.2rem);
   padding: 0.75em 1.5em;
-  border: none;
   color: white;
   text-decoration: none;
-  font-weight: bold;
+  border: none;
   border-radius: 4px;
-  display: inline-block;
-  margin-top: 1em;
+  margin-top: 1.5em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
+
+.hero-button:hover,
+.hero-button:focus {
+  background-color: var(--color-leaf-green);
+  outline: none;
+}
+
+
 
 /*Clubs Section*/
 
