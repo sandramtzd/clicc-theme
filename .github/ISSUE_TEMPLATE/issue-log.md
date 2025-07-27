@@ -1,4 +1,12 @@
-### Issue Summary
+---
+name: 🐛 Issue Log
+about: Track a bug, error, or technical problem in the CLICC theme
+title: "[BUG] Short description of issue"
+labels: bug
+assignees: sandramtzd
+---
+
+### 🐛 Issue Summary
 <!-- Describe the problem in simple terms -->
 
 ### 📍 Cause / Context
