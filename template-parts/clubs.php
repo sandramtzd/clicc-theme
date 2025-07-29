@@ -15,20 +15,20 @@
       <div class="club-card club-holiday">
         <h3>Holiday Clubs</h3>
         <a href="/holiday-club" class="club-link">
-          Learn more
-            <span class="icon">
-              <?php echo file_get_contents(get_theme_file_uri('/assets/icons/arrow.svg')); ?>
-            </span>
+          <span class="link-text">Learn more</span>
+          <span class="icon">
+            <?php echo file_get_contents(get_theme_file_uri('/assets/icons/arrow.svg')); ?>
+          </span>
         </a>
       </div>
 
       <div class="club-card club-creche">
         <h3>Crèche Clubs</h3>
         <a href="/creche-club" class="club-link">
-          Learn more 
-            <span class="icon">
-              <?php echo file_get_contents(get_theme_file_uri('/assets/icons/arrow.svg')); ?>
-            </span>
+          <span class="link-text">Learn more</span>
+          <span class="icon">
+            <?php echo file_get_contents(get_theme_file_uri('/assets/icons/arrow.svg')); ?>
+          </span>
         </a>
       </div>
 

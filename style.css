@@ -406,9 +406,12 @@ body {
 
 /* Services */
 
+/* General styles */
 .services {
-  padding: 4rem 2rem;
+  padding: 4rem 1rem;
   background-color: #f9f9f9;
+  overflow: hidden;
+  position: relative;
 }
 
 .services h2 {
@@ -417,34 +420,129 @@ body {
   font-size: 2rem;
 }
 
-.services-grid {
-  display: flex;
-  gap: 1.5rem;
-  justify-content: center;
-  flex-wrap: wrap;
+/* Scroll container */
+.services-scroll-container {
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+  padding-bottom: 1rem;
 }
 
+/* Card track */
+.services-grid {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: nowrap;
+  padding-inline: 1rem;
+}
+
+/* Cards */
 .service-card {
+  flex: 0 0 100%;
+  height: 350px;
+  max-width: 100%;
   background-color: #dceef5;
-  padding: 2rem;
+  padding: 2rem 1.5rem;
   border-radius: 12px;
-  width: 100%;
-  max-width: 300px;
   text-align: center;
+  scroll-snap-align: center;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
+/* Service background colors */
+.service-consulting {
+  background-color: var(--color-blue-sky);
+  color: #fff;
+}
+
+.service-pvg {
+  background-color: var(--color-leaf-green);
+  color: #fff;
+}
+
+.service-pool {
+  background-color: rgba(249, 168, 37, 0.5);
+  color: #fff;
+}
+
+.service-creche {
+  background-color: var(--color-coral);
+  color: #fff;
+}
+/* Typography */
+.service-card h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 1.2rem;
+  margin-bottom: 0.8rem;
+}
+
+.service-card p {
+  font-family: 'Catamaran', sans-serif;
+  font-size: 1rem;
+}
+
+/* Contact Us button */
+.service-link {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 10px 20px;
+  background-color: var(--color-coral);
+  color: inherit;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.service-link:hover {
+  background-color: transparent;
+  color: white;
+  border: 1px solid white;
+}
+
+/* Arrows container */
+.scroll-arrows {
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  padding: 0 1rem;
+  transform: translateY(-50%);
+  z-index: 2;
+}
+
+/* Arrow buttons */
+.scroll-arrows button {
+  background-color: rgba(0, 0, 0, 0.5);
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* Hide arrows on desktop */
 @media (min-width: 768px) {
-  .services-grid {
-    flex-wrap: nowrap;
+  .service-card {
+    flex: 0 0 30%;
+    max-width: 30%;
   }
 
-  .service-card {
-    width: 30%;
+  .scroll-arrows {
+    display: none;
+  }
+
+  .services-scroll-container {
+    overflow-x: visible;
   }
 }
 
-/* Services */
 
 /* News Section */
 
