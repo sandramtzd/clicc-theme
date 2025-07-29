@@ -289,16 +289,10 @@ body {
 
 
 
-/*Clubs Section*/
-
+/* Clubs Section */
 .clubs-section {
   padding: 60px 20px;
-  background-color: #f9f9f9;
-}
-
-.clubs-section h2 {
-  text-align: center;
-  margin-bottom: 40px;
+  background-color: #fff;
 }
 
 .clubs-grid {
@@ -307,45 +301,107 @@ body {
   gap: 20px;
 }
 
-/* Switch to row layout on wider screens */
+/* Row layout for desktop */
 @media (min-width: 768px) {
   .clubs-grid {
     flex-direction: row;
-    justify-content: space-between;
   }
 }
 
 .club-card {
   flex: 1;
-  padding: 20px;
+  height: 350px;
+  padding: 30px 20px;
   border-radius: 16px;
-  color: white;
-  text-align: center;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: #000;
+  position: relative;
 }
 
-.club-link {
-  display: inline-block;
-  margin-top: 15px;
-  background: white;
-  color: inherit;
-  padding: 10px 20px;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: bold;
-}
 
-/* Background colors per club */
 .club-breakfast {
-  background-color: #f9a825; /* yellow */
-}
-
-.club-after {
-  background-color: #2e7d32; /* green */
+  background-color: var(--color-leaf-green);
 }
 
 .club-holiday {
-  background-color: #0288d1; /* blue */
+  background-color: var(--color-warm-yellow);
+}
+
+.club-creche {
+  background-color: var(--color-soft-purple);
+}
+
+/* Typography */
+.club-card h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 2rem;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.club-link {
+  font-family: 'Catamaran', sans-serif;
+  font-weight: 500;
+  font-size: 1.2rem;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: #000;
+  position: relative;
+  overflow: hidden;
+}
+
+.club-link .link-text {
+  display: inline-block;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.club-link .icon {
+  display: inline-block;
+  width: 1.2rem;
+  height: 1.2rem;
+  transition: transform 0.3s ease;
+}
+
+/* Hover effect: hide text, slightly move icon */
+.club-link:hover .link-text {
+  transform: translateX(-10px);
+  opacity: 0;
+}
+
+.club-link:hover .icon {
+  transform: translateX(-10px);
+}
+
+/* Responsive text scaling */
+@media (max-width: 768px) {
+  .club-card h3 {
+    font-size: 1.6rem;
+  }
+
+  .club-link {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .club-card {
+    height: 100px;
+    padding: 20px;
+  }
+
+  .club-card h3 {
+    font-size: 1.4rem;
+  }
+
+  .club-link {
+    font-size: 0.95rem;
+  }
 }
 
 /* Services */

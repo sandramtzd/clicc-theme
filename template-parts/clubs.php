@@ -1,26 +1,37 @@
 <section id="clubs" class="clubs-section">
-<h2>Our Clubs</h2>
   <div class="container">
-    
-
     <div class="clubs-grid">
-      <div class="club-card club-breakfast">
-        <h3>Breakfast Club</h3>
-        <p>Start the day with a smile and a nutritious breakfast.</p>
-        <a href="/breakfast-club" class="club-link">Learn More</a>
-      </div>
 
-      <div class="club-card club-after">
-        <h3>After School Club</h3>
-        <p>Fun, engaging activities after school hours.</p>
-        <a href="/after-school-club" class="club-link">Learn More</a>
+      <div class="club-card club-breakfast">
+        <h3>Breakfast & After School Clubs</h3>
+        <a href="/breakfast-club" class="club-link">
+          <span class="link-text">Learn more</span>
+          <span class="icon">
+            <?php echo file_get_contents(get_theme_file_uri('/assets/icons/arrow.svg')); ?>
+          </span>
+        </a>
       </div>
 
       <div class="club-card club-holiday">
-        <h3>Holiday Club</h3>
-        <p>Exciting programs during school breaks.</p>
-        <a href="/holiday-club" class="club-link">Learn More</a>
+        <h3>Holiday Clubs</h3>
+        <a href="/holiday-club" class="club-link">
+          Learn more
+            <span class="icon">
+              <?php echo file_get_contents(get_theme_file_uri('/assets/icons/arrow.svg')); ?>
+            </span>
+        </a>
       </div>
+
+      <div class="club-card club-creche">
+        <h3>Crèche Clubs</h3>
+        <a href="/creche-club" class="club-link">
+          Learn more 
+            <span class="icon">
+              <?php echo file_get_contents(get_theme_file_uri('/assets/icons/arrow.svg')); ?>
+            </span>
+        </a>
+      </div>
+
     </div>
   </div>
 </section>
