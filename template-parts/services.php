@@ -1,6 +1,10 @@
-<section class="services">
-  <h2>Services</h2>
+<?php
+// This is the services section template part
+?>
 
+
+<section class="services-section">
+  <h2>Services</h2>
   <div class="scroll-arrows">
     <button class="scroll-left" aria-label="Scroll Left">←</button>
     <button class="scroll-right" aria-label="Scroll Right">→</button>

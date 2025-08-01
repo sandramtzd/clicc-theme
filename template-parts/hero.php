@@ -1,4 +1,7 @@
-<section class="hero">
+
+
+
+<section class="hero-section">
   <img src="<?php echo get_theme_file_uri('/assets/images/hero.png'); ?>" alt="Hero background" class="hero-bg">
   
   <div class="hero-overlay">

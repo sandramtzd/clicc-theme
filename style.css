@@ -27,6 +27,15 @@ Version: 1.0
   --warm-yellow-70: rgba(243, 201, 105, 0.7);
   --coral-70: rgba(246, 114, 128, 0.7);
 
+    /* 10% Opacity Versions for Backgrounds */
+  --blue-sky-10: rgba(110, 193, 228, 0.1);
+  --soft-purple-10: rgba(162, 138, 214, 0.1);
+  --leaf-green-10: rgba(136, 192, 112, 0.1);
+  --warm-yellow-10: rgba(243, 201, 105, 0.1);
+  --coral-10: rgba(246, 114, 128, 0.1);
+
+  
+
    /* Other colors... */
   --color-footer-text: #AEACA7;
 
@@ -210,7 +219,7 @@ body {
 }
 
 /* ========== Hero Section ========== */
-.hero {
+.hero-section {
   position: relative;
   width: 100%;
   height: 100vh;
@@ -298,24 +307,16 @@ body {
 }
 
 
-
-/* Clubs Section */
+/* ========== Clubs Section ========== */
 .clubs-section {
   padding: 60px 20px;
-  background-color: #fff;
+  background-color: var(--blue-sky-10);
 }
 
 .clubs-grid {
   display: flex;
   flex-direction: column;
   gap: 20px;
-}
-
-/* Row layout for desktop */
-@media (min-width: 768px) {
-  .clubs-grid {
-    flex-direction: row;
-  }
 }
 
 .club-card {
@@ -327,26 +328,17 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  color: #000;
   position: relative;
 }
 
 
-.club-breakfast {
-  background-color: var(--color-leaf-green);
-}
+.club-breakfast { background-color: var(--color-leaf-green);}
+.club-holiday { background-color: var(--color-warm-yellow);}
+.club-creche { background-color: var(--color-soft-purple);}
 
-.club-holiday {
-  background-color: var(--color-warm-yellow);
-}
 
-.club-creche {
-  background-color: var(--color-soft-purple);
-}
-
-/* Typography */
 .club-card h3 {
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--font-primary);
   font-weight: 700;
   font-size: 2rem;
   line-height: 1.2;
@@ -354,7 +346,7 @@ body {
 }
 
 .club-link {
-  font-family: 'Catamaran', sans-serif;
+  font-family: var(--font-secondary);
   font-weight: 500;
   font-size: 1.2rem;
   text-decoration: none;
@@ -378,14 +370,15 @@ body {
   transition: transform 0.3s ease;
 }
 
-/* Hover effect: hide text, slightly move icon */
 .club-link:hover .link-text {
-  transform: translateX(-10px);
-  opacity: 0;
+  transform: translateX(10px);
+  color: var(--color-white);
+
 }
 
 .club-link:hover .icon {
-  transform: translateX(-10px);
+  transform: translateX(10px);
+  color: var(--color-white);
 }
 
 /* Responsive text scaling */
@@ -414,17 +407,24 @@ body {
   }
 }
 
+/* Row layout for desktop */
+@media (min-width: 768px) {
+  .clubs-grid {
+    flex-direction: row;
+  }
+}
+
 /* Services */
 
 /* General styles */
-.services {
+.services-section {
   padding: 4rem 1rem;
-  background-color: #f9f9f9;
+  background-color: var(--soft-purple-10);
   overflow: hidden;
   position: relative;
 }
 
-.services h2 {
+.services-section h2 {
   text-align: center;
   margin-bottom: 2rem;
   font-size: 2rem;
@@ -440,7 +440,7 @@ body {
 }
 
 /* Card track */
-.services-grid {
+.service-grid {
   display: flex;
   gap: 1rem;
   flex-wrap: nowrap;
@@ -553,62 +553,187 @@ body {
   }
 }
 
-
-/* News Section */
-
+/* General Section and Container Styling */
 .news-section {
-  padding: 4rem 2rem;
-  background-color: #fff9f5;
+    padding: 60px 0;
+    background-color: var(--leaf-green-10);
+
 }
 
-.news-section h2 {
-  text-align: center;
-  margin-bottom: 2rem;
-  font-size: 2rem;
+.news-section-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+    box-sizing: border-box;
 }
 
-.news-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
+.section-title {
+    font-size: 48px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+/* News Carousel & Card Styling (Mobile First) */
+.news-carousel {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory; /* Enables snapping effect */
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 20px; /* Space for dots on mobile */
+    scrollbar-width: none; /* Hide scrollbar for Firefox */
+    -ms-overflow-style: none; /* Hide scrollbar for IE/Edge */
+    gap: 20px;
+}
+
+.news-carousel::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for Chrome/Safari */
 }
 
 .news-card {
-  background-color: #fff;
-  border: 1px solid #eee;
-  border-radius: 12px;
-  padding: 1.5rem;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    flex: 0 0 90%; /* Each card takes up 90% of the container width on mobile */
+    scroll-snap-align: start; /* Snap to the start of each card */
+    border-radius: 12px;
+    overflow: hidden;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    background-color: var(--color-white);
 }
 
-.news-card h3 {
-  font-size: 1.25rem;
-  margin-bottom: 0.5rem;
+.news-card a {
+    text-decoration: none;
+    color: inherit;
+    display: block;
 }
 
-.read-more {
-  display: inline-block;
-  margin-top: 1rem;
-  color: #f3629e;
-  text-decoration: none;
-  font-weight: bold;
+.news-card-image {
+    position: relative;
+    padding-top: 66.66%; /* 3:2 aspect ratio (2/3 * 100) */
+    overflow: hidden;
+    background-color: grey;
+    margin: 1.2rem;
 }
 
-.read-more:hover {
-  text-decoration: underline;
+.news-card-image img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
 }
 
+.news-card-image img:hover {
+    transform: scale(1.05);
+}
+
+.news-card-image .placeholder-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80px;
+    height: 80px;
+    color: #444;
+}
+
+.news-card-content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.news-card-title {
+    font-size: 24px;
+    font-weight: 600;
+    margin: 0 0 10px;
+    line-height: 1.2;
+}
+
+.news-card-meta {
+    font-size: 14px;
+    color: #999;
+    margin-bottom: 15px;
+}
+
+.news-card-excerpt {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #ccc;
+    margin-bottom: 20px;
+    flex-grow: 1;
+}
+
+.read-more-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #0080ff; /* Light blue color */
+    transition: color 0.3s ease;
+}
+
+.read-more-button svg {
+    width: 20px;
+    height: 20px;
+    stroke: currentColor;
+    transition: transform 0.3s ease;
+}
+
+.read-more-button:hover {
+    color: #fff;
+}
+
+.read-more-button:hover svg {
+    transform: translateX(5px);
+}
+
+/* Slider Dots Styling (Mobile Only) */
+.news-carousel-dots {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.dot {
+    height: 12px;
+    width: 12px;
+    margin: 0 5px;
+    background-color: #444; /* Inactive dot color */
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.dot.active {
+    background-color: #0080ff; /* Active dot color */
+}
+
+/* Desktop-specific styles */
 @media (min-width: 768px) {
-  .news-grid {
-    flex-direction: row;
-    justify-content: space-between;
-  }
+    .news-carousel {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        overflow-x: visible;
+        scroll-snap-type: none;
+        padding-bottom: 0;
+    }
 
-  .news-card {
-    width: 30%;
-  }
+    .news-card {
+        flex: none; /* Remove flex properties for desktop */
+        scroll-snap-align: none;
+    }
+
+    .news-carousel-dots {
+        display: none; /* Hide dots on desktop */
+    }
 }
-
 
 /* Contact Section */
 .contact-section {
@@ -646,7 +771,7 @@ body {
 
 /* ========== Footer Section ========== */
 #site-footer {
-  background-color: #f8f8f8;
+  background-color: var(--warm-yellow-10);
   padding: 4rem 2rem;
   font-size: 0.9rem;
   line-height: 1.5;
@@ -689,7 +814,7 @@ body {
 .footer-links {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(160px, max-content));
-  column-gap: 1rem;
+  column-gap: 3rem;
   row-gap: 1rem;
   max-width: 900px;
   margin: 0 auto 1rem auto;
@@ -793,6 +918,17 @@ body {
   letter-spacing: -0.015em;
   margin: 1rem;
   color: var(--color-footer-text);
+}
+
+.footer-bottom .site-by a {
+  color: var(--color-footer-text);
+  text-decoration: none;
+
+}
+
+.footer-bottom .site-by a:hover {
+  text-decoration: none;
+  color: var(--color-coral);
 }
 
 /* ========== Responsive Tweaks ========== */

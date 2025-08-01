@@ -6,7 +6,7 @@ get_header();
 ?>
 
 <section class="news">
-  <h1>All News</h1>
+  <h1>News</h1>
   <div class="container">
     <div class="news-grid">
       <?php
