@@ -6,7 +6,6 @@ get_header();
 ?>
 
 <section id="clubs" class="clubs-section">
-  <h1>Our Clubs</h1>
   <div class="container">
     <div class="clubs-grid">
       <div class="club-card club-breakfast">

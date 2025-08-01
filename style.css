@@ -11,7 +11,7 @@ Version: 1.0
 @import url('https://fonts.googleapis.com/css2?family=Catamaran:wght@400;600&family=Montserrat:wght@400;700&display=swap');
 
 :root {
-  /* Colors */
+  /* Main Colors */
   --color-blue-sky: #6ec1e4;
   --color-soft-purple: #a28ad6;
   --color-leaf-green: #88c070;
@@ -19,6 +19,16 @@ Version: 1.0
   --color-coral: #f67280;
   --color-charcoal: #333333;
   --color-white: #ffffff;
+
+    /* 70% Opacity Versions */
+  --blue-sky-70: rgba(110, 193, 228, 0.7);
+  --soft-purple-70: rgba(162, 138, 214, 0.7);
+  --leaf-green-70: rgba(136, 192, 112, 0.7);
+  --warm-yellow-70: rgba(243, 201, 105, 0.7);
+  --coral-70: rgba(246, 114, 128, 0.7);
+
+   /* Other colors... */
+  --color-footer-text: #AEACA7;
 
   /* Fonts */
   --font-primary: 'Montserrat', sans-serif;
@@ -599,38 +609,6 @@ body {
   }
 }
 
-/* Footer Section*/
-#site-footer {
-  background-color: #f8f8f8;
-  padding: 4rem 2rem;
-  font-family: 'Helvetica Neue', sans-serif;
-  color: #333;
-  font-size: 0.9rem;
-  line-height: 1.5;
-}
-
-/* ===== Accredited By Section ===== */
-#site-footer .accreditation {
-  text-align: center;
-  margin-bottom: 2.5rem;
-}
-
-#site-footer .accreditation h3 {
-  font-size: 1.4rem;
-  margin-bottom: 1rem;
-}
-
-#site-footer .accreditation .logos {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 1.5rem;
-}
-
-#site-footer .accreditation .logos img {
-  max-height: 40px;
-  object-fit: contain;
-}
 
 /* Contact Section */
 .contact-section {
@@ -666,89 +644,189 @@ body {
   font-style: italic;
 }
 
-/* ===== Footer Links Grid ===== */
-.footer-links {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 2rem;
+/* ========== Footer Section ========== */
+#site-footer {
+  background-color: #f8f8f8;
+  padding: 4rem 2rem;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+/* === Accreditation Section === */
+#site-footer .accreditation {
+  text-align: center;
   margin-bottom: 2.5rem;
 }
 
-.footer-links h4 {
-  font-weight: 600;
-  margin-bottom: 0.75rem;
-  font-size: 1rem;
+#site-footer .accreditation h3 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  font-family: var(--font-primary);
+  font-weight: 700;
 }
 
+#site-footer .accreditation .logos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: nowrap;
+}
+
+#site-footer .accreditation .logos img {
+  max-height: 150px;
+  max-width: 200px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+#site-footer .accreditation .logos img:hover {
+  transform: scale(1.05);
+}
+
+/* === Footer Links Grid === */
+.footer-links {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, max-content));
+  column-gap: 1rem;
+  row-gap: 1rem;
+  max-width: 900px;
+  margin: 0 auto 1rem auto;
+  text-align: left;
+  justify-content: center; 
+}
+
+.footer-links h4 {
+  font-size: 1rem;
+  font-family: var(--font-primary);
+  text-transform: uppercase;
+}
+
+/* ===== Color Branding ===== */
+.footer-links h4.sitemap { color: var(--soft-purple-70); }
+.footer-links h4.company { color: var(--blue-sky-70); }
+.footer-links h4.useful-links { color: var(--leaf-green-70); }
+.footer-links h4.legal { color: var(--warm-yellow-70); }
+
+/* === Links & Address === */
 .footer-links ul {
   list-style: none;
   padding: 0;
-  margin: 0;
+  margin-left: 0.3rem;
 }
 
 .footer-links li {
-  margin-bottom: 0.5rem;
+  font-family: var(--font-secondary);
+  font-weight: 500;
+  line-height: 23px;
+  letter-spacing: -0.015em;
 }
 
 .footer-links a {
-  color: #333;
   text-decoration: none;
+  color: var(--color-footer-text);
+  transition: color 0.2s ease;
 }
 
 .footer-links a:hover {
-  text-decoration: underline;
-}
-
-/* ===== Contact Info & Address ===== */
-.footer-links address {
-  font-style: normal;
-  line-height: 1.6;
-}
-
-.footer-links address a {
-  color: #333;
+  color: var(--color-coral);
   text-decoration: none;
 }
 
-.footer-links address a:hover {
-  text-decoration: underline;
+/* === Contact Details === */
+
+.footer-contact-us h4 {
+  font-size: 1rem;
+  font-family: var(--font-primary);
+  text-transform: uppercase;
+  color: var(--coral-70);
+  margin-bottom: 0.5rem;
 }
 
-/* ===== Bottom Legal Info ===== */
+
+.footer-contact-us {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 2.5rem auto;
+  font-family: var(--font-secondary);
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: -0.015em;
+  color: var(--color-footer-text);
+}
+
+.footer-contact-us a {
+  color: var(--color-footer-text);
+  text-decoration: none;
+}
+
+.footer-contact-us a:hover {
+  text-decoration: none;
+  color: var(--color-coral);
+}
+
+
+/* === Bottom Legal Info === */
 .footer-bottom {
   text-align: center;
-  font-size: 0.75rem;
-  color: #777;
   border-top: 1px solid #ddd;
   padding-top: 1.5rem;
 }
 
-/* ===== Responsive Tweaks ===== */
-@media (max-width: 480px) {
+.footer-bottom .registers {
+  font-family: var(--font-primary);
+  font-weight: 500;
+  font-size: 0.9rem;
+  line-height: 20px;
+  letter-spacing: -0.015em;
+  margin: 1rem;
+  color: var(--color-footer-text);
+}
+
+.footer-bottom .site-by {
+  padding: 1rem;
+  font-size: 0.75rem;
+  font-family: var(--font-primary);
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: -0.015em;
+  margin: 1rem;
+  color: var(--color-footer-text);
+}
+
+/* ========== Responsive Tweaks ========== */
+@media (max-width: 768px) {
   #site-footer {
-    padding: 3rem 1.25rem;
+    padding: 3rem 1.5rem;
     font-size: 0.85rem;
+  }
+
+  .footer-links {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem 2rem;
+    justify-items: start;
   }
 
   #site-footer .accreditation h3 {
     font-size: 1.2rem;
   }
 
-  .footer-links {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-
   .footer-links h4 {
-    font-size: 1rem;
+    font-size: 0.95rem;
   }
 
   .footer-bottom {
-    font-size: 0.7rem;
+    font-size: 0.75rem;
     padding-top: 1rem;
   }
 
   #site-footer .accreditation .logos img {
-    max-height: 35px;
+    max-height: 40px;
+  }
+
+  .footer-contact-section {
+    text-align: center;
+    padding: 1rem 0;
   }
 }

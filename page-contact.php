@@ -5,7 +5,7 @@
 get_header();
 ?>
 
-<section class="contact-section">
+<section class="contact">
   <div class="container">
     <h1>Contact Us</h1>
     <p>If you have any questions or want to get in touch, please fill out the form below.</p>

@@ -6,9 +6,10 @@ get_header();
 ?>
 
 <!-- Your About Us content starts here -->
-<div class="about-us-container">
+<section class="about">
   <h1>About Us</h1>
-  <p>Welcome to our about us page! Here you can add your company info, team, history, mission, etc.</p>
-</div>
+  <div class="content">
+    <p>Welcome to our about us page! Here you can add your company info, team, history, mission, etc.</p>
+  </div>
 
 <?php get_footer(); ?>
