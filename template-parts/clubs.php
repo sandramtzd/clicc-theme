@@ -1,4 +1,6 @@
 <section id="clubs" class="clubs-section">
+  <h2 class="section-title">Clubs</h2>
+
   <div class="container">
     <div class="clubs-grid">
 

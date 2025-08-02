@@ -1,6 +1,6 @@
 <footer id="site-footer">
   <section class="accreditation">
-    <h3>Accredited by</h3>
+    <h3 class="section-title">Accredited by</h3>
     <div class="logos">
       <img src="<?php echo get_template_directory_uri(); ?>/assets/images/care-inspectorate.png" alt="Care Inspectorate">
       <img src="<?php echo get_template_directory_uri(); ?>/assets/images/soscn.svg" alt="SOSCN">

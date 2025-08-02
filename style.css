@@ -20,21 +20,19 @@ Version: 1.0
   --color-charcoal: #333333;
   --color-white: #ffffff;
 
-    /* 70% Opacity Versions */
+  /* 70% Opacity Versions */
   --blue-sky-70: rgba(110, 193, 228, 0.7);
   --soft-purple-70: rgba(162, 138, 214, 0.7);
   --leaf-green-70: rgba(136, 192, 112, 0.7);
   --warm-yellow-70: rgba(243, 201, 105, 0.7);
   --coral-70: rgba(246, 114, 128, 0.7);
 
-    /* 10% Opacity Versions for Backgrounds */
+  /* 10% Opacity Versions for Backgrounds */
   --blue-sky-10: rgba(110, 193, 228, 0.1);
   --soft-purple-10: rgba(162, 138, 214, 0.1);
   --leaf-green-10: rgba(136, 192, 112, 0.1);
   --warm-yellow-10: rgba(243, 201, 105, 0.1);
   --coral-10: rgba(246, 114, 128, 0.1);
-
-  
 
    /* Other colors... */
   --color-footer-text: #AEACA7;
@@ -98,6 +96,44 @@ body {
   gap: var(--space-md);
 }
 
+/* Utility Classes - Buttons */
+.btn {
+  display: inline-block;
+  margin-top: 1.5em;
+  font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+  padding: 0.5em 1em;
+  background-color: var(--color-coral);
+  color: var(--color-white);
+  font-family: var(--font-primary);
+  font-weight: 500;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease, border 0.3s ease;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+}
+
+.btn:hover {
+  background-color: transparent;
+  color: var(--color-white);
+  border: 1px solid var(--color-white);
+}
+
+/* Utility Classes - Section Title */
+
+.section-title {
+  font-size: clamp(1.75rem, 5vw, 3rem); /* Scales between ~28px and 48px */
+  font-weight: 700;
+  font-family: var(--font-primary);
+  text-align: center;
+  margin-bottom: var(--space-lg); /* Uses your spacing scale */
+  line-height: 1.2;
+}
+
+
+
+
 /* Mobile-first spacing utilities */
 .mt-md {
   margin-top: var(--space-md);
@@ -114,6 +150,8 @@ body {
 .pb-md {
   padding-bottom: var(--space-md);
 }
+
+
 
 /* Responsive media queries (min-width: 768px) */
 @media (min-width: 768px) {
@@ -284,29 +322,6 @@ body {
   font-size: clamp(1.5rem, 2.5vw, 1.5rem);
 }
 
-/* Call-to-action button */
-.hero-button {
-  background-color: var(--color-coral);
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 500;
-  font-size: clamp(0.9rem, 2.2vw, 1.2rem);
-  padding: 0.75em 1.5em;
-  color: white;
-  text-decoration: none;
-  border: none;
-  border-radius: 4px;
-  margin-top: 1.5em;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.hero-button:hover,
-.hero-button:focus {
-  background-color: var(--color-leaf-green);
-  outline: none;
-}
-
-
 /* ========== Clubs Section ========== */
 .clubs-section {
   padding: 60px 20px;
@@ -414,7 +429,7 @@ body {
   }
 }
 
-/* Services */
+/* ========== Services Section ========== */
 
 /* General styles */
 .services-section {
@@ -424,23 +439,17 @@ body {
   position: relative;
 }
 
-.services-section h2 {
-  text-align: center;
-  margin-bottom: 2rem;
-  font-size: 2rem;
-}
-
 /* Scroll container */
 .services-scroll-container {
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
   scroll-behavior: smooth;
-  padding-bottom: 1rem;
+  padding-bottom: 2rem;
 }
 
 /* Card track */
-.service-grid {
+.services-grid {
   display: flex;
   gap: 1rem;
   flex-wrap: nowrap;
@@ -449,48 +458,36 @@ body {
 
 /* Cards */
 .service-card {
-  flex: 0 0 100%;
-  height: 350px;
-  max-width: 100%;
-  background-color: #dceef5;
+  height: 400px;
+  max-width: 300px;
+  flex: 0 0 auto;
   padding: 2rem 1.5rem;
   border-radius: 12px;
   text-align: center;
   scroll-snap-align: center;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  color: #000;
 }
 
 /* Service background colors */
-.service-consulting {
-  background-color: var(--color-blue-sky);
-  color: #fff;
-}
+.service-consulting { background-color: var(--blue-sky-70);}
+.service-pvg { background-color: var(--leaf-green-70);}
+.service-pool { background-color: var(--warm-yellow-70);}
+.service-creche { background-color: var(--soft-purple-70);}
 
-.service-pvg {
-  background-color: var(--color-leaf-green);
-  color: #fff;
-}
 
-.service-pool {
-  background-color: rgba(249, 168, 37, 0.5);
-  color: #fff;
-}
-
-.service-creche {
-  background-color: var(--color-coral);
-  color: #fff;
-}
-/* Typography */
 .service-card h3 {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 700;
+  font-family: var(--font-primary);
+  font-weight: 600;
   font-size: 1.2rem;
   margin-bottom: 0.8rem;
 }
 
 .service-card p {
-  font-family: 'Catamaran', sans-serif;
+  font-family: var(--font-secondary);
   font-size: 1rem;
+  line-height: 25px;
+
 }
 
 /* Contact Us button */
@@ -499,7 +496,7 @@ body {
   margin-top: 1rem;
   padding: 10px 20px;
   background-color: var(--color-coral);
-  color: inherit;
+  color: var(--color-white);
   font-family: 'Montserrat', sans-serif;
   font-weight: 500;
   border-radius: 8px;
@@ -537,19 +534,20 @@ body {
   cursor: pointer;
 }
 
-/* Hide arrows on desktop */
+
 @media (min-width: 768px) {
   .service-card {
     flex: 0 0 30%;
     max-width: 30%;
   }
 
+  /* Hide arrows on desktop */
   .scroll-arrows {
     display: none;
   }
 
   .services-scroll-container {
-    overflow-x: visible;
+    overflow-x: auto;
   }
 }
 
@@ -567,12 +565,6 @@ body {
     box-sizing: border-box;
 }
 
-.section-title {
-    font-size: 48px;
-    font-weight: bold;
-    text-align: center;
-    margin-bottom: 40px;
-}
 
 /* News Carousel & Card Styling (Mobile First) */
 .news-carousel {
@@ -741,12 +733,6 @@ body {
   background-color: #f0f9ff;
 }
 
-.contact-section h1 {
-  text-align: center;
-  font-size: 2rem;
-  margin-bottom: 1rem;
-}
-
 .contact-section p {
   text-align: center;
   font-size: 1rem;
@@ -781,13 +767,6 @@ body {
 #site-footer .accreditation {
   text-align: center;
   margin-bottom: 2.5rem;
-}
-
-#site-footer .accreditation h3 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-  font-family: var(--font-primary);
-  font-weight: 700;
 }
 
 #site-footer .accreditation .logos {
@@ -942,10 +921,6 @@ body {
     grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem 2rem;
     justify-items: start;
-  }
-
-  #site-footer .accreditation h3 {
-    font-size: 1.2rem;
   }
 
   .footer-links h4 {
