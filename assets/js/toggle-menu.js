@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
   const header = document.querySelector(".site-header");
   const toggleBtn = document.getElementById("menu-toggle");
+  const menuIcon = document.getElementById("menu-icon");
   const nav = document.getElementById("main-nav");
 
   let isOpen = false;
@@ -10,11 +11,18 @@ document.addEventListener("DOMContentLoaded", function () {
     toggleBtn.setAttribute("aria-expanded", isOpen);
     nav.classList.toggle("open");
 
+    // Toggle a class on body
+  document.body.classList.toggle("menu-open", isOpen);
+
+
     toggleBtn.classList.add("icon-fade");
+
     setTimeout(() => {
-      toggleBtn.innerHTML = isOpen
-        ? '<img src="' + theme_vars.template_url + '/assets/icons/close.svg" alt="Close menu" />'
-        : '<img src="' + theme_vars.template_url + '/assets/icons/hamburger.svg" alt="Open menu" />';
+      menuIcon.src = isOpen
+        ? theme_vars.template_url + "/assets/icons/close.svg"
+        : theme_vars.template_url + "/assets/icons/hamburger.svg";
+      menuIcon.alt = isOpen ? "Close menu" : "Open menu";
+
       toggleBtn.classList.remove("icon-fade");
     }, 150);
   });

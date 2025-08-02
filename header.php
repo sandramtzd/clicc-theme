@@ -33,9 +33,9 @@
           <?php echo file_get_contents(get_template_directory() . '/assets/icons/phone.svg'); ?>
         </a>
 
-        <button id="menu-toggle" class="menu-toggle mobile-header-icon" aria-label="Toggle menu" aria-expanded="false">
-          <?php echo file_get_contents(get_template_directory() . '/assets/icons/hamburger.svg'); ?>
-        </button>
+      <button id="menu-toggle" class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <img id="menu-icon" class="mobile-header-icon" src="<?php echo get_template_directory_uri(); ?>/assets/icons/hamburger.svg" alt="Open menu" />
+      </button>
       </div>
     </div>
   </header>
