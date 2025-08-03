@@ -48,3 +48,55 @@ function clicc_theme_setup() {
     add_theme_support('post-thumbnails');
 }
 add_action('after_setup_theme', 'clicc_theme_setup');
+
+//Form
+
+add_action('admin_post_nopriv_submit_contact_form', 'handle_contact_form');
+add_action('admin_post_submit_contact_form', 'handle_contact_form');
+
+function handle_contact_form() {
+    // Honeypot check
+    if (!empty($_POST['website'])) {
+        wp_die('Spam detected.');
+    }
+
+    // Sanitize inputs
+    $first_name = sanitize_text_field($_POST['first_name'] ?? '');
+    $last_name  = sanitize_text_field($_POST['last_name'] ?? '');
+    $email      = sanitize_email($_POST['email'] ?? '');
+    $message    = sanitize_textarea_field($_POST['message'] ?? '');
+
+    // Validate required fields
+    if (!$first_name || !$email || !$message || !is_email($email)) {
+        wp_die('Please fill out all fields correctly.');
+    }
+
+    // === Verify reCAPTCHA ===
+    $recaptcha_secret = RECAPTCHA_SECRET_KEY;
+    $recaptcha_response = $_POST['g-recaptcha-response'];
+
+    $verify_response = wp_remote_post('https://www.google.com/recaptcha/api/siteverify', [
+        'body' => [
+            'secret' => $recaptcha_secret,
+            'response' => $recaptcha_response
+        ]
+    ]);
+
+    $response_body = json_decode(wp_remote_retrieve_body($verify_response));
+
+    if (empty($response_body->success)) {
+        wp_die('reCAPTCHA verification failed. Please try again.');
+    }
+
+    // Send email
+    $to = 'info@communitylinkchildcare.com';
+    $subject = "Contact from $first_name $last_name";
+    $body = "Email: $email\n\nMessage:\n$message";
+    $headers = ['Content-Type: text/plain; charset=UTF-8'];
+
+    wp_mail($to, $subject, $body, $headers);
+
+    // Redirect
+    wp_redirect(home_url('/thank-you'));
+    exit;
+}

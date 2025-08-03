@@ -58,7 +58,7 @@
     </div>
     <div class="site-by">
       ©2025 Community Link Childcare. All rights reserved.<br>
-      Site by <a href="https://sandramtzd.github.io/"><strong>Sandra Martínez Domínguez<strong></a>
+      Site by <a href="https://sandramtzd.github.io/"><strong>Sandra Martínez<strong></a>
   </div>
 </footer>
 
