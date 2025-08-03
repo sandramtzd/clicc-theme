@@ -1,7 +1,7 @@
 <?php
 // This is the services section template part
 ?>
-<section class="services-section">
+<section id="services-section" class="section">
   <h2 class="section-title">Services</h2>
   <div class="scroll-arrows">
     <button class="scroll-left" aria-label="Scroll Left">←</button>

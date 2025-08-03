@@ -1,4 +1,4 @@
-<footer id="site-footer">
+<footer id="site-footer" class="section">
   <section class="accreditation">
     <h3 class="section-title">Accredited by</h3>
     <div class="logos">

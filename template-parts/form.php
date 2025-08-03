@@ -2,7 +2,7 @@
 // This is the contact form section template part
 ?>
 
-<section class="contact-section">
+<section id="form-section" class="section">
   <h2 class="section-title">Get in Touch</h2>
     <form action="<?php echo esc_url(admin_url('admin-post.php')); ?>" method="POST" class="contact-form" novalidate>
         <input type="hidden" name="action" value="submit_contact_form">

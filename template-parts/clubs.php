@@ -1,4 +1,4 @@
-<section id="clubs" class="clubs-section">
+<section id="clubs-section" class="section">
   <h2 class="section-title">Clubs</h2>
 
   <div class="container">

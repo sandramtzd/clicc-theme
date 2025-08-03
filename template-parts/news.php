@@ -2,7 +2,7 @@
 // This is the news section template part, now using CSS Scroll-Snap for the carousel.
 ?>
 
-<section class="news-section">
+<section id="news-section" class="section">
     <div class="news-section-inner">
         <h2 class="section-title">News</h2>
         <div class="news-carousel" id="news-carousel">
