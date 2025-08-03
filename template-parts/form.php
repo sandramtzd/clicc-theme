@@ -1,20 +1,26 @@
-<form action="<?php echo esc_url(admin_url('admin-post.php')); ?>" method="POST" class="custom-contact-form" novalidate>
-  <input type="hidden" name="action" value="submit_contact_form">
-  <input type="text" name="website" style="display:none" tabindex="-1" autocomplete="off">
+<?php
+// This is the contact form section template part
+?>
 
-  <div class="form-group">
-    <input type="text" name="first_name" placeholder="Name" required>
-    <input type="text" name="last_name" placeholder="Surname" required>
-  </div>
+<section class="contact-section">
+  <h2 class="section-title">Get in Touch</h2>
+    <form action="<?php echo esc_url(admin_url('admin-post.php')); ?>" method="POST" class="contact-form" novalidate>
+        <input type="hidden" name="action" value="submit_contact_form">
+        <input type="text" name="website" style="display:none" tabindex="-1" autocomplete="off">
 
-  <input type="email" name="email" placeholder="Email address" required>
-  <textarea name="message" placeholder="Message" rows="5" required></textarea>
+        <div class="form-group">
+            <input type="text" name="first_name" placeholder="Name" required>
+            <input type="text" name="last_name" placeholder="Surname" required>
+        </div>
 
-  <!-- Google reCAPTCHA -->
-  <div class="g-recaptcha" data-sitekey="<?php echo RECAPTCHA_SITE_KEY; ?>"></div>
+        <input type="email" name="email" placeholder="Email address" required>
+        <textarea name="message" placeholder="Message" rows="5" required></textarea>
 
-  <button type="submit">Submit</button>
-</form>
+        <!-- Google reCAPTCHA -->
+        <div class="g-recaptcha" data-sitekey="<?php echo RECAPTCHA_SITE_KEY; ?>"></div>
+
+        <button type="submit" class="btn">Submit</button>
+    </form>
 
 <!-- Load reCAPTCHA JS -->
 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
