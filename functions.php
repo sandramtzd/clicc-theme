@@ -42,6 +42,7 @@ function clicc_theme_setup() {
     // Register navigation menu
     register_nav_menus(array(
         'header-menu' => __('Header Menu', 'clicc-theme'),
+        'footer-sitemap' => __('Footer Sitemap Menu', 'clicc-theme'), 
     ));
 
     // Enable post thumbnails

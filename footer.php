@@ -10,12 +10,13 @@
   <section class="footer-links">
     <div class="column">
       <h4 class="sitemap">Sitemap</h4>
-      <ul>
-        <li><a href="<?php echo get_permalink( get_page_by_path('clubs') ); ?>">Clubs</a></li>
-        <li><a href="<?php echo get_permalink( get_page_by_path('services') ); ?>">Services</a></li>
-        <li><a href="<?php echo get_permalink( get_page_by_path('news') ); ?>">News</a></li>
-        <li><a href="<?php echo get_permalink( get_page_by_path('contact') ); ?>">Contact us</a></li>
-      </ul>
+      <?php
+        wp_nav_menu(array(
+          'theme_location' => 'footer-sitemap',
+          'menu_class'     => 'footer-sitemap-menu',
+          'container'      => false
+        ));
+      ?>
     </div>
     <div class="column">
       <h4 class="company">Company</h4>
