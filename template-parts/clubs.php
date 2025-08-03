@@ -5,7 +5,7 @@
 
       <div class="club-card club-breakfast">
         <h3>Breakfast & After School Clubs</h3>
-        <a href="/clubs" class="club-link">
+        <a href="<?php echo get_permalink( get_page_by_path('clubs') ); ?>" class="club-link">
           <span class="link-text">Learn more</span>
           <span class="icon">
             <?php echo file_get_contents(get_theme_file_uri('/assets/icons/arrow.svg')); ?>
@@ -15,7 +15,7 @@
 
       <div class="club-card club-holiday">
         <h3>Holiday Clubs</h3>
-        <a href="/holiday-club" class="club-link">
+        <a href="<?php echo get_permalink( get_page_by_path('clubs') ); ?>" class="club-link">
           <span class="link-text">Learn more</span>
           <span class="icon">
             <?php echo file_get_contents(get_theme_file_uri('/assets/icons/arrow.svg')); ?>
@@ -25,7 +25,7 @@
 
       <div class="club-card club-creche">
         <h3>Crèche Clubs</h3>
-        <a href="/creche-club" class="club-link">
+        <a href="<?php echo get_permalink( get_page_by_path('clubs') ); ?>" class="club-link">
           <span class="link-text">Learn more</span>
           <span class="icon">
             <?php echo file_get_contents(get_theme_file_uri('/assets/icons/arrow.svg')); ?>

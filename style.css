@@ -83,7 +83,7 @@ body {
 }
 
 .section {
-  padding: 3rem 0; /* Top/bottom spacing only */
+  padding: 3rem 1rem; /* Top/bottom spacing only */
 }
 
 @media (max-width: 768px) {
@@ -96,21 +96,18 @@ body {
 
 }
 
-
 section + section {
   margin-top: 2rem;
 }
 
 .section-title {
-  font-size: clamp(1.75rem, 5vw, 3rem); /* Scales between ~28px and 48px */
+  font-size: clamp(2.5rem, 5vw, 3rem);
   font-weight: 700;
   font-family: var(--font-primary);
   text-align: center;
-  margin-bottom: var(--space-lg); /* Uses your spacing scale */
+  margin-bottom: var(--space-lg);
   line-height: 1.2;
 }
-
-
 
 .flex {
   display: flex;
@@ -396,11 +393,14 @@ section + section {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  justify-content: center;
 }
 
 .club-card {
   flex: 1;
-  height: 350px;
+  min-height: clamp(280px, 40vw, 350px);
+  width: 100%;
+  max-width: 350px;
   padding: 1.5rem;
   border-radius: 1rem;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -420,7 +420,7 @@ section + section {
 .club-card h3 {
   font-family: var(--font-primary);
   font-weight: 700;
-  font-size: clamp(1.5rem, 4.5vw, 4rem);
+  font-size: clamp(2rem, 3.5vw, 3rem);
   line-height: 1.2;
   margin: 0;
 }
@@ -461,31 +461,6 @@ section + section {
   color: var(--color-white);
 }
 
-/* Responsive text scaling */
-@media (max-width: 768px) {
-  .club-card h3 {
-    font-size: 1.6rem;
-  }
-
-  .club-link {
-    font-size: 1rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .club-card {
-    height: 100px;
-    padding: 20px;
-  }
-
-  .club-card h3 {
-    font-size: 1.4rem;
-  }
-
-  .club-link {
-    font-size: 0.95rem;
-  }
-}
 
 /* Row layout for desktop */
 @media (min-width: 768px) {
