@@ -3,10 +3,6 @@
 ?>
 <section id="services-section" class="section">
   <h2 class="section-title">Services</h2>
-  <div class="scroll-arrows">
-    <button class="scroll-left" aria-label="Scroll Left">←</button>
-    <button class="scroll-right" aria-label="Scroll Right">→</button>
-  </div>
 
   <div class="services-scroll-container">
     <div class="services-grid">
@@ -30,7 +26,8 @@
         <p>Each crèche package can be tailored to suit your wedding or event. We can also organise refreshments and baby change facilities so that you are free to completely enjoy your day.</p>
         <a href="<?php echo get_permalink( get_page_by_path('contact') ); ?>" class="btn">Contact Us</a>
       </div>
-  
     </div>
   </div>
+
+
 </section>

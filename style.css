@@ -75,11 +75,42 @@ body {
 
 /* Utility Classes */
 .container {
-  width: 90%;
+  width: 100%;
   max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
+  padding: 0 1rem;       /* Horizontal padding (gutters) */
+  margin: 0 auto;        /* Center the container */
+  box-sizing: border-box;
 }
+
+.section {
+  padding: 3rem 0; /* Top/bottom spacing only */
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 1rem;
+  }
+  .section {
+    padding: 2rem 0;
+  }
+
+}
+
+
+section + section {
+  margin-top: 2rem;
+}
+
+.section-title {
+  font-size: clamp(1.75rem, 5vw, 3rem); /* Scales between ~28px and 48px */
+  font-weight: 700;
+  font-family: var(--font-primary);
+  text-align: center;
+  margin-bottom: var(--space-lg); /* Uses your spacing scale */
+  line-height: 1.2;
+}
+
+
 
 .flex {
   display: flex;
@@ -91,10 +122,7 @@ body {
   justify-content: center;
 }
 
-.grid {
-  display: grid;
-  gap: var(--space-md);
-}
+
 
 /* Utility Classes - Buttons */
 .btn {
@@ -120,37 +148,6 @@ body {
   border: 1px solid var(--color-white);
 }
 
-/* Utility Classes - Section */
-
-.section {
-  padding: 2rem 2rem;
-  
-}
-
-@media (min-width: 768px) {
-  .section {
-    padding: 2rem 2rem;
-  }
-}
-
-@media (min-width: 1024px) {
-  .section {
-    padding: 2rem 2rem;
-  }
-}
-
-section + section {
-  margin-top: 2rem;
-}
-
-.section-title {
-  font-size: clamp(1.75rem, 5vw, 3rem); /* Scales between ~28px and 48px */
-  font-weight: 700;
-  font-family: var(--font-primary);
-  text-align: center;
-  margin-bottom: var(--space-lg); /* Uses your spacing scale */
-  line-height: 1.2;
-}
 
 
 
@@ -185,6 +182,7 @@ section + section {
 
 .site-header {
   position: fixed;
+  padding: 0em 1em;
   top: 0;
   left: 0;
   width: 100%;
@@ -338,7 +336,8 @@ section + section {
   position: relative;
   height: 100vh;
   padding: 0;
-  margin-bottom: 4rem;
+  /* margin-bottom: 1rem; */
+  overflow: hidden;
 }
 
 .hero-bg {
@@ -367,34 +366,29 @@ section + section {
   text-align: center;
 }
 
-/* Main title */
 .hero-overlay h1 {
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--font-primary);
   font-weight: 700;
-  font-size: clamp(3rem, 5vw, 3.5rem);
+  font-size: clamp(2.2rem, 6vw, 3rem);
   line-height: 1.2;
   letter-spacing: -0.05em;
-  margin: 0 0 1rem 0;
+  margin-bottom: 2rem;
 }
 
-/* Supporting text */
-.hero-overlay p {
-  margin: 0.5rem 0 0;
-  line-height: 1.4;
-}
-
-/* Line-specific fonts */
-.line-montserrat {
-  font-family: 'Montserrat', sans-serif;
+.hero-overlay h2 {
+  font-family: var(--font-primary);
   font-weight: 400;
-  font-size: clamp(2rem, 2.5vw, 1.5rem);
+  font-size: clamp(2rem, 5vw, 2.5rem);
+  line-height: 1.2;
   letter-spacing: -0.05em;
 }
 
-.line-catamaran {
-  font-family: 'Catamaran', sans-serif;
+.hero-overlay h3 {
+  font-family: var(--font-secondary);
   font-weight: 700;
-  font-size: clamp(1.5rem, 2.5vw, 1.5rem);
+  font-size: clamp(1.8rem, 4.5vw, 2.5rem);
+  line-height: 1.2;
+
 }
 
 /* ========== Clubs Section ========== */
@@ -579,30 +573,6 @@ section + section {
 }
 
 
-/* Arrows container */
-.scroll-arrows {
-  display: flex;
-  justify-content: space-between;
-  position: absolute;
-  top: 50%;
-  left: 0;
-  right: 0;
-  padding: 0 1rem;
-  transform: translateY(-50%);
-  z-index: 2;
-}
-
-/* Arrow buttons */
-.scroll-arrows button {
-  background-color: rgba(0, 0, 0, 0.5);
-  border: none;
-  color: white;
-  font-size: 1.5rem;
-  padding: 0.5rem 1rem;
-  border-radius: 50%;
-  cursor: pointer;
-}
-
 
 @media (min-width: 768px) {
   .service-card {
@@ -610,10 +580,6 @@ section + section {
     max-width: 30%;
   }
 
-  /* Hide arrows on desktop */
-  .scroll-arrows {
-    display: none;
-  }
 
   .services-scroll-container {
     overflow-x: auto;
@@ -888,10 +854,8 @@ section + section {
 .footer-links {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(160px, max-content));
-  column-gap: 3rem;
+  column-gap: 1rem;
   row-gap: 1rem;
-  max-width: 900px;
-  margin: 0 auto 1rem auto;
   text-align: left;
   justify-content: center; 
 }

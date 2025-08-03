@@ -3,8 +3,8 @@
 ?>
 
 <section id="news-section" class="section">
-    <div class="news-section-inner">
-        <h2 class="section-title">News</h2>
+    <h2 class="section-title">News</h2>
+    <div class="container">
         <div class="news-carousel" id="news-carousel">
             <?php
             // Query to fetch the 3 most recent posts

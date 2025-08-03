@@ -1,9 +1,8 @@
 <section id="clubs-section" class="section">
   <h2 class="section-title">Clubs</h2>
-
   <div class="container">
     <div class="clubs-grid">
-
+      
       <div class="club-card club-breakfast">
         <h3>Breakfast & After School Clubs</h3>
         <a href="/breakfast-club" class="club-link">

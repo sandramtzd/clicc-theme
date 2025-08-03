@@ -1,19 +1,12 @@
-<?php
-// This is the hero section
-?>
-
 <section id="hero-section" class="hero-section">
   <img src="<?php echo get_theme_file_uri('/assets/images/hero.png'); ?>" alt="Hero background" class="hero-bg">
   
   <div class="hero-overlay">
-    <h1>
-      Community Link <br> 
-      Childcare
-    </h1>
-    <p>
-      <span class="line-montserrat">Supporting working families,</span><br>
-      <span class="line-catamaran">nurturing happy children</span>
-    </p>
-    <a href="#clubs" class="btn">Learn more</a>
+    <div class="container">
+      <h1>Community Link <br> Childcare</h1>
+      <h2>Supporting working families,</h2>
+      <h3>nurturing happy children</h3>
+      <a href="#clubs-section" class="btn">Learn more</a>
+    </div>
   </div>
 </section>
