@@ -101,7 +101,7 @@ section + section {
 }
 
 .section-title {
-  font-size: clamp(2.5rem, 5vw, 3rem);
+  font-size: clamp(2rem, 5vw, 3rem);
   font-weight: 700;
   font-family: var(--font-primary);
   text-align: center;
@@ -137,6 +137,7 @@ section + section {
   border: none;
   cursor: pointer;
   text-align: center;
+  width: max-content;
 }
 
 .btn:hover {
@@ -145,6 +146,29 @@ section + section {
   border: 1px solid var(--color-white);
 }
 
+.btn-secondary {
+  display: inline-block;
+  margin-top: 1.5em;
+  font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+  padding: 0.5em 1em;
+  background-color: var(--color-coral);
+  color: var(--color-white);
+  font-family: var(--font-primary);
+  font-weight: 500;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease, border 0.3s ease;
+  border: 1px solid var(--color-white);
+  cursor: pointer;
+  text-align: center;
+  width: max-content;
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-charcoal);
+  color: var(--color-white);
+  border: 1px solid var(--color-white);
+}
 
 
 
@@ -886,7 +910,7 @@ section + section {
 .footer-contact-us {
   text-align: center;
   max-width: 600px;
-  margin: 0 auto 2.5rem auto;
+  margin: 2.5rem auto 2.5rem auto;
   font-family: var(--font-secondary);
   font-weight: 500;
   line-height: 20px;
@@ -974,4 +998,91 @@ section + section {
     text-align: center;
     padding: 1rem 0;
   }
+}
+
+/* ===== About Page Gutenberg Styling ===== */
+
+/* === Responsive About Columns === */
+.wp-block-columns {
+  display: grid;
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+@media (min-width: 768px) {
+  .wp-block-columns {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.wp-block-columns {
+  text-align: center;
+}
+
+.wp-block-columns img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  margin-bottom: 1rem;
+  align-items: center;
+}
+
+.wp-block-columns p {
+  font-size: 1rem;
+  font-family: var(--font-secondary);
+  color: black;
+}
+
+
+/* ========== CTA Group Section ========== */
+.cta-group {
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+.cta-group h2 {
+  font-family: var(--font-primary);
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  margin-bottom: 1rem;
+  line-height: 1.3em;
+}
+
+.cta-group p {
+  font-family: var(--font-secondary);
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
+  margin-bottom: 2rem;
+}
+
+
+/* ===== Button Styling for Gutenberg Buttons ===== */
+
+/* Clean up default Gutenberg button */
+.wp-block-button__link {
+  all: unset;
+  display: inline-block;
+  margin-top: 1.5em;
+  font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+  padding: 0.5em 1em;
+  background-color: var(--color-coral);
+  color: var(--color-white);
+  font-family: var(--font-primary);
+  font-weight: 500;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease, border 0.3s ease;
+  border: 1px solid var(--color-white);
+  cursor: pointer;
+  text-align: center;
+  width: max-content !important;
+
+}
+
+.wp-block-button__link:hover {
+  background-color: var(--color-charcoal);
+  color: var(--color-white);
+}
+
+.wp-block-buttons {
+  justify-content: center;
+  display: flex;
 }

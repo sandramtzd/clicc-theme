@@ -20,6 +20,10 @@
       <?php if (get_field('hero_tagline')) : ?>
         <h3><?php the_field('hero_tagline'); ?></h3>
       <?php endif; ?>
+
+      <?php if (is_front_page()) : ?>
+        <a href="<?php echo get_permalink( get_page_by_path('clubs') ); ?>" class="btn">Learn more</a>
+      <?php endif; ?>
     </div>
   </div>
 </section>
