@@ -6,9 +6,15 @@ get_header();
 get_template_part('template-parts/hero');
 ?>
 
-<section class="clubs">
-  <div class="content">
-    <!-- Your content here -->
+<section id="clubs-page" class="section">
+  <div class="container">
+    <?php
+    if (have_posts()) :
+      while (have_posts()) : the_post();
+        the_content(); 
+      endwhile;
+    endif;
+    ?>
   </div>
 </section>
 

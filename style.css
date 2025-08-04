@@ -1086,3 +1086,108 @@ section + section {
   justify-content: center;
   display: flex;
 }
+
+/* ===== Clubs Page Gutenberg Styling ===== */
+#clubs-page .intro-paragraph {
+  font-size: 1.25em;
+  font-family: var(--font-secondary);
+  line-height: 1.6;
+  color: #333;
+  margin-bottom: 2em;
+}
+
+#clubs-page .section-asc-cover {
+  min-height: 300px;
+  width: 100vw; 
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+}
+
+#clubs-page .section-asc-cover .wp-block-cover__background {
+  background-color: var(--color-leaf-green) !important;
+  opacity: 1 !important; 
+}
+
+/* Ensure the content inside the cover block is centered */
+#clubs-page .section-asc-cover .wp-block-cover__inner-container {
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+/* --- Desktop Styles for the ASC Cover --- */
+
+/* Style the heading inside the cover */
+#clubs-page .section-asc-cover .cover-h2 {
+  font-family: var(--font-primary);
+  font-size: 2.5em; /* Large size for desktop */
+  font-weight: 700;
+  line-height: 1.2em;
+
+  color: #fff;
+  margin-bottom: 0.5em;
+
+}
+
+/* Style the paragraph inside the cover */
+#clubs-page .section-asc-cover .cover-p {
+  font-family: var(--font-secondary);
+  font-size: 1.2em; /* A good size for desktop */
+  font-weight: 400;
+  color: #fff;
+  line-height: 1.5;
+}
+
+/* --- Mobile Styles (for screens smaller than 768px) --- */
+
+@media (max-width: 767px) {
+  /* Reduce the font size of the heading on mobile */
+  #clubs-page .section-asc-cover .cover-h2 {
+    font-size: 1.8em;
+  }
+
+  /* Reduce the font size of the paragraph on mobile */
+  #clubs-page .section-asc-cover .cover-p{
+    font-size: 1em;
+  }
+}
+
+/* Specific styling for the club cards grid */
+#clubs-page .clubs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 50px;
+}
+
+/* Style for the individual cards inside the grid */
+#clubs-page .clubs-grid .wp-block-cover {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* And so on for the h2, h3, and button inside the grid */
+#clubs-page .clubs-grid .wp-block-cover h2,
+#clubs-page .clubs-grid .wp-block-cover h3 {
+  color: #fff;
+}
+
+#clubs-page .clubs-grid .wp-block-cover .wp-block-button__link {
+  all: unset;
+  display: inline-block;
+  margin-top: 1.5em;
+  font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+  padding: 0.5em 1em;
+  background-color: var(--color-coral);
+  color: var(--color-white);
+  font-family: var(--font-primary);
+  font-weight: 500;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease, border 0.3s ease;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  width: max-content !important;
+}
