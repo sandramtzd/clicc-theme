@@ -3,13 +3,13 @@
  * Template Name: About Us
  */
 get_header();
+get_template_part('template-parts/hero');
 ?>
 
-<!-- Your About Us content starts here -->
 <section class="about">
-  <h1>About Us</h1>
   <div class="content">
-    <p>Welcome to our about us page! Here you can add your company info, team, history, mission, etc.</p>
+    <!-- Your about content here -->
   </div>
+</section>
 
 <?php get_footer(); ?>
