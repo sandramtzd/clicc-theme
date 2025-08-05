@@ -1087,23 +1087,27 @@ section + section {
   display: flex;
 }
 
+
 /* ===== Clubs Page Gutenberg Styling ===== */
+
 #clubs-page .intro-paragraph {
-  font-size: 1.25em;
+  font-size: clamp(1.2rem, 3vw, 1.6rem);
   font-family: var(--font-secondary);
-  line-height: 1.6;
+  line-height: 1.5;
   color: #333;
-  margin-bottom: 2em;
+  margin-bottom: 3em;
 }
 
 #clubs-page .section-asc-cover {
-  min-height: 300px;
+  min-height: 350px;
   width: 100vw; 
   position: relative;
   left: 50%;
   right: 50%;
   margin-left: -50vw;
   margin-right: -50vw;
+
+
 }
 
 #clubs-page .section-asc-cover .wp-block-cover__background {
@@ -1111,73 +1115,88 @@ section + section {
   opacity: 1 !important; 
 }
 
-/* Ensure the content inside the cover block is centered */
 #clubs-page .section-asc-cover .wp-block-cover__inner-container {
   max-width: 1140px;
   margin: 0 auto;
 }
 
-/* --- Desktop Styles for the ASC Cover --- */
-
-/* Style the heading inside the cover */
 #clubs-page .section-asc-cover .cover-h2 {
   font-family: var(--font-primary);
-  font-size: 2.5em; /* Large size for desktop */
+  font-size: clamp(1.8rem, 5vw, 10rem); 
   font-weight: 700;
   line-height: 1.2em;
-
   color: #fff;
-  margin-bottom: 0.5em;
+  margin-bottom: 1em;
 
 }
 
-/* Style the paragraph inside the cover */
 #clubs-page .section-asc-cover .cover-p {
   font-family: var(--font-secondary);
-  font-size: 1.2em; /* A good size for desktop */
+  font-size: clamp(1.2rem, 3vw, 1.5rem);
   font-weight: 400;
   color: #fff;
   line-height: 1.5;
+  margin-bottom: 1em;
 }
 
-/* --- Mobile Styles (for screens smaller than 768px) --- */
-
-@media (max-width: 767px) {
-  /* Reduce the font size of the heading on mobile */
-  #clubs-page .section-asc-cover .cover-h2 {
-    font-size: 1.8em;
-  }
-
-  /* Reduce the font size of the paragraph on mobile */
-  #clubs-page .section-asc-cover .cover-p{
-    font-size: 1em;
-  }
+/* Club Card Grid */
+#clubs-page .club-card-grid {
+  margin-top: 2em;
+  column-gap: 1.5em;
 }
 
-/* Specific styling for the club cards grid */
-#clubs-page .clubs-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 50px;
-}
-
-/* Style for the individual cards inside the grid */
-#clubs-page .clubs-grid .wp-block-cover {
-  border-radius: 8px;
+#clubs-page .club-card-grid .wp-block-cover {
+  position: relative;
+  margin: 1em 0em;
+  min-height: 300px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
   overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
 }
 
-/* And so on for the h2, h3, and button inside the grid */
-#clubs-page .clubs-grid .wp-block-cover h2,
-#clubs-page .clubs-grid .wp-block-cover h3 {
-  color: #fff;
+#clubs-page .club-card-grid .wp-block-cover .wp-block-cover__background {
+  opacity: 0 !important;  
 }
 
-#clubs-page .clubs-grid .wp-block-cover .wp-block-button__link {
+
+#clubs-page .club-card-grid .wp-block-cover .wp-block-cover__inner-container {
+  position: absolute;
+  left: 1rem !important;
+  right: 1rem !important;
+  bottom: 1rem;
+  padding: 0.5rem 1rem 1rem 1rem;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px; 
+}
+
+
+#clubs-page .club-card-grid .wp-block-cover h2 {
+  font-family: var(--font-primary);
+  color: var(--color-white);
+  letter-spacing: -0.05em;
+  font-weight: 600;
+  line-height: 1em;
+  padding-bottom: 0.2em;
+  font-size: clamp(1.6rem, 1vw, 1rem) !important;
+}
+
+
+#clubs-page .club-card-grid .wp-block-cover p {
+  font-family: var(--font-secondary);
+  font-size: clamp(1.3rem, 1vw, 1rem);
+  line-height: 0.9em;
+  color: var(--color-white);
+  letter-spacing: -0.05em;
+}
+
+#clubs-page .club-card-grid .wp-block-cover .wp-block-button__link {
   all: unset;
   display: inline-block;
-  margin-top: 1.5em;
-  font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+  margin-top: 1em;
+  font-size: clamp(1rem, 2.5vw, 1.1rem);
   padding: 0.5em 1em;
   background-color: var(--color-coral);
   color: var(--color-white);
@@ -1190,4 +1209,10 @@ section + section {
   cursor: pointer;
   text-align: center;
   width: max-content !important;
+}
+
+#clubs-page .club-card-grid .wp-block-cover .wp-block-button__link:hover {
+  background-color: transparent;
+  color: var(--color-white);
+  border: 1px solid var(--color-white);
 }
