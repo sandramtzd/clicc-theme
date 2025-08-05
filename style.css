@@ -1153,6 +1153,7 @@ section + section {
   border-top-right-radius: 20px;
   overflow: hidden;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  
 
 }
 
@@ -1163,13 +1164,15 @@ section + section {
 
 #clubs-page .club-card-grid .wp-block-cover .wp-block-cover__inner-container {
   position: absolute;
-  left: 1rem !important;
-  right: 1rem !important;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 1rem);
   bottom: 1rem;
   padding: 0.5rem 1rem 1rem 1rem;
+  box-sizing: border-box;
   background-color: rgba(0, 0, 0, 0.5);
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px; 
+  border-top-left-radius: 18px;
+  border-top-right-radius: 18px; 
 }
 
 
@@ -1180,7 +1183,7 @@ section + section {
   font-weight: 600;
   line-height: 1em;
   padding-bottom: 0.2em;
-  font-size: clamp(1.6rem, 1vw, 1rem) !important;
+  font-size: clamp(1.5rem, 1vw, 1rem) !important;
 }
 
 
