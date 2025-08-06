@@ -43,9 +43,9 @@
   <div class="footer-contact-us">
     <h4>Contact Us</h4>
     <div class="contact-details">
-      Community Link Childcare<br>
-      178 Holburn Street, Third Floor,<br>
-      Aberdeen, AB10 6DA<br>
+      Community Link Childcare (CliCC Ltd)<br>
+      184/192 Market Street, Third Floor,<br>
+      Aberdeen, AB11 5PQ<br>
       <a href="mailto:info@communitylinkchildcare.org.uk">info@communitylinkchildcare.org.uk</a><br>
       <a href="tel:01224443880">01224 443 880</a>
     </div>
