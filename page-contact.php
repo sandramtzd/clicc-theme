@@ -18,4 +18,6 @@ get_template_part('template-parts/hero');
   </div>
 </section>
 
-<?php get_footer(); ?>
+<?php 
+get_template_part('template-parts/form');
+get_footer(); ?>

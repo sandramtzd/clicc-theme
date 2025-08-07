@@ -1227,7 +1227,7 @@ section + section {
 
 #contact-page .wp-block-columns h2 {
   font-family: var(--font-primary);
-  font-size: clamp(1.6rem, 5vw, 10rem); 
+  font-size: clamp(1.6rem, 2vw, 2rem); 
   font-weight: 700;
   line-height: 1.2em;
   color: black;
@@ -1236,7 +1236,7 @@ section + section {
 
 #contact-page .wp-block-columns p {
   font-family: var(--font-secondary);
-  font-size: clamp(1.1rem, 2vw, 1.5rem);
+  font-size: clamp(1.1rem, 1vw, 1.2rem);
   font-weight: 400;
   color: black;
   line-height: 1.5;
@@ -1244,17 +1244,56 @@ section + section {
 
 }
 
+#contact-page .wp-block-columns p a {
+  text-decoration: none;
+  color: black;
+  transition: color 0.3s ease, color 0.3s ease;
+}
+
+#contact-page .wp-block-columns p a:hover {
+  color: var(--color-coral);
+}
+
+/* Desktop styles with vertical dividers */
+#contact-page .wp-block-columns .wp-block-column:not(:last-child) {
+  border-right: 1px solid #ccc;
+  padding-right: 45px;
+}
+
+/* Mobile styles with horizontal dividers */
+@media (max-width: 768px) {
+  #contact-page .wp-block-columns .wp-block-column {
+    /* Remove vertical borders and padding */
+    border-right: none !important;
+    padding-right: 0 !important;
+
+    /* Add horizontal border at the bottom */
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+  }
+  
+  /* Remove the border from the very last column */
+  #contact-page .wp-block-columns .wp-block-column:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+}
+
 /* Google maps */
 #contact-page .map-container {
   position: relative;
-  height: 300px;
-
-
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  max-width: 100%;
 }
 
 #contact-page .map-container iframe {
   position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-
 }
