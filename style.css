@@ -1106,55 +1106,31 @@ section + section {
   margin: 0 auto 3em auto;
 }
 
-/*  Banners Section */
-
-#clubs-page .banner .wp-block-cover {
-  height: 350px;
-
-}
-
-#clubs-page .banner .wp-block-cover__background {
-  opacity: 1 !important; 
-
-}
-
-#clubs-page .banner .wp-block-cover__inner-container {
-  position: relative;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 80% !important;
-  bottom: 1rem;
-  padding: 2rem;
-  box-sizing: border-box;
-  background-color: var(--leaf-green-70);
-  border-radius: 20px;
-}
-
-#clubs-page .banner .banner-asc .wp-block-cover__inner-container {
-  background-color: var(--leaf-green-70) !important;
-  opacity: 1 !important; 
-
-}
-
-#clubs-page .banner .cover-h2 {
+#clubs-page .club-divider {
   font-family: var(--font-primary);
-  font-size: clamp(1.8rem, 5vw, 10rem); 
-  font-weight: 700;
-  line-height: 1.2em;
-  color: #fff;
-  margin-bottom: 0.5em;
+  font-size: clamp(1.7rem, 3.5vw, 3rem);
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem; /* space between text and lines */
+  position: relative;
+  color: var(--your-color, #333); /* optional */
+  margin: 1em 0;
 
 
 }
 
-#clubs-page .banner .cover-p {
-  font-family: var(--font-secondary);
-  font-size: clamp(1.2rem, 2vw, 1.5rem);
-  font-weight: 400;
-  color: #fff;
-  line-height: 1.5;
-  margin-bottom: 1em;
+#clubs-page .club-divider::before,
+#clubs-page .club-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: currentColor; /* uses the same color as the text */
+  opacity: 0.5; /* optional for subtle lines */
 }
+
+
 
 /* Club Card Grid */
 #clubs-page .club-card-grid {
