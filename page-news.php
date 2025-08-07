@@ -6,9 +6,10 @@ get_header();
 get_template_part('template-parts/hero');
 ?>
 
-<section class="news">
-  <div class="content">
-    <!-- Your content here -->
+<section id="news-page" class="section">
+  <div class="container">
+    <?php get_template_part('template-parts/news'); ?>
+    
   </div>
 </section>
 
