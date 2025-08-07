@@ -383,6 +383,14 @@ section + section {
   text-align: center;
 }
 
+.hero-overlay .container {
+  max-width: 900px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 1em;
+
+}
+
 .hero-overlay h1 {
   font-family: var(--font-primary);
   font-weight: 700;
@@ -1222,6 +1230,44 @@ section + section {
   justify-content: center;
 
 }
+
+/* ========== Services Page ========== */
+
+#services-page .wp-block-media-text {
+  margin: 2em 0;
+
+}
+
+#services-page .wp-block-media-text__media img {
+  border-radius: 20px;
+
+}
+
+#services-page .wp-block-media-text h2 {
+  font-family: var(--font-primary);
+  font-size: clamp(1.5rem, 1vw, 1.5rem);
+  line-height: 1.2em;
+  margin: 0.5em 0;
+
+}
+#services-page .wp-block-media-text p {
+  font-family: var(--font-secondary);
+  font-size: clamp(1rem, 1vw, 1.5rem);
+  line-height: 1.2em;
+
+}
+
+#services-page .wp-block-media-text p {
+  font-family: var(--font-secondary);
+  font-size: clamp(1rem, 1vw, 1.5rem);
+  line-height: 1.2em;
+
+}
+
+#services-page .wp-block-button__link:hover {
+  background-color: black;
+}
+
 
 /* ========== Contact Page ========== */
 
