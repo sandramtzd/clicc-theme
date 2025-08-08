@@ -8,7 +8,6 @@ get_template_part('template-parts/hero');
 
 <section id="news-page" class="section">
   <div class="container">
-    <h1 class="page-title">All Our News & Updates</h1>
     <div class="news-page-grid">
       <?php
       // Query to fetch ALL posts
