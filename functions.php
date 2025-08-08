@@ -31,6 +31,23 @@ function clicc_enqueue_assets() {
         filemtime(get_template_directory() . '/assets/js/news-carousel.js'),
         true // load in footer
     );
+
+    // Swiper.js CSS from CDN
+    wp_enqueue_style(
+        'swiper-css',
+        'https://unpkg.com/swiper/swiper-bundle.min.css',
+        array(),
+        '6.8.4'
+    );
+
+    // Swiper.js JS from CDN
+    wp_enqueue_script(
+        'swiper-js',
+        'https://unpkg.com/swiper/swiper-bundle.min.js',
+        array(),
+        '6.8.4',
+        true // Load in footer
+    );
 }
 add_action('wp_enqueue_scripts', 'clicc_enqueue_assets');
 
