@@ -7,10 +7,10 @@
     <div class="container">
         <div class="news-carousel" id="news-carousel">
             <?php
-            // Query to fetch the 3 most recent posts
+            // Query to fetch the 3 most recent posts for the main page section
             $args = array(
                 'post_type'      => 'post',
-                'posts_per_page' => 3,
+                'posts_per_page' => 3, // Keep this at 3 for the main page section
                 'orderby'        => 'date',
                 'order'          => 'DESC',
             );
@@ -27,7 +27,7 @@
                                 <?php
                                 // Display the post thumbnail or a placeholder
                                 if (has_post_thumbnail()) :
-                                    the_post_thumbnail('full', array('class' => 'post-thumbnail'));
+                                    the_post_thumbnail('medium', array('class' => 'post-thumbnail')); // Using 'medium' for smaller carousel cards
                                 else :
                                     // Placeholder image SVG
                                     ?>
@@ -60,10 +60,10 @@
                         </div>
                     </div>
                 <?php endwhile;
-                // Restore original post data
+                // IMPORTANT: Restore original post data after custom queries
                 wp_reset_postdata();
             else :
-                // Display a message if no posts are found
+                // Message if no posts are found
                 ?>
                 <p class="no-posts-message">No news available at the moment. Please check back later.</p>
             <?php endif; ?>
