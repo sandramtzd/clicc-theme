@@ -506,21 +506,24 @@ section + section {
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
   scroll-behavior: smooth;
-  padding-bottom: 2rem;
+  padding-bottom: 1em;
 }
 
 .services-scroll-container::-webkit-scrollbar {
-  height: 10px; 
+  height: 10px;
+   
 }
 
 .services-scroll-container::-webkit-scrollbar-track {
   background-color: rgba(0, 0, 0, 0.1);
   border-radius: 6px;
+ 
 }
 
 .services-scroll-container::-webkit-scrollbar-thumb {
   background-color: var(--coral-70);
   border-radius: 6px;
+
 
 }
 
@@ -530,6 +533,7 @@ section + section {
   gap: 1rem;
   flex-wrap: nowrap;
   padding-inline: 1rem;
+  justify-content: flex-start;
 }
 
 /* Cards */
@@ -537,8 +541,8 @@ section + section {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  height: 400px;
-  max-width: 300px;
+  height: 350px;
+  max-width: 250px;
   flex: 0 0 auto;
   padding: 2rem 1rem;
   border-radius: 12px;
@@ -577,16 +581,22 @@ section + section {
 }
 
 
-
 @media (min-width: 768px) {
   .service-card {
-    flex: 0 0 30%;
-    max-width: 30%;
+    flex: 0 0 auto;
+    max-width: 300px;
   }
 
 
   .services-scroll-container {
     overflow-x: auto;
+    padding: 0 1em 2em 1em;
+  }
+}
+
+@media (min-width: 1024px) {
+  .services-grid {
+    justify-content: center; 
   }
 }
 

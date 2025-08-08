@@ -1,33 +1,58 @@
 <?php
 // This is the services section template part
+
+// Get the content of the Services page
+$services_page = get_page_by_path('services');
+if ($services_page) :
+    $services_content = apply_filters('the_content', $services_page->post_content);
+
+    // Use regular expressions to find all wp-block-media-text blocks
+    preg_match_all('/<div class="wp-block-media-text__content">(.*?)<\/div>/s', $services_content, $matches);
+
+    // Define an array of classes for the card colors
+    $card_colors = ['service-consulting', 'service-pvg', 'service-pool', 'service-creche'];
+    $color_index = 0;
+
+    if (!empty($matches[1])) :
 ?>
+
 <section id="services-section" class="section">
   <h2 class="section-title">Services</h2>
 
   <div class="services-scroll-container">
     <div class="services-grid">
-      <div class="service-card service-consulting">
-        <h3>Consulting Services</h3>
-        <p>We provide a full range of support and consultancy services for childcare professionals and businesses to ensure that they are meeting statutory requirements.</p>
-        <a href="<?php echo get_permalink( get_page_by_path('contact') ); ?>" class="btn">Contact Us</a>
+
+      <?php foreach ($matches[1] as $service_block) :
+          // Get the title and paragraph
+          preg_match('/<h2.*?>(.*?)<\/h2>/s', $service_block, $title_match);
+          preg_match('/<p.*?>(.*?)<\/p>/s', $service_block, $p_match);
+          
+          $title = isset($title_match[1]) ? strip_tags($title_match[1]) : '';
+          $paragraph = isset($p_match[1]) ? strip_tags($p_match[1]) : '';
+          
+          // Get the button link
+          preg_match('/<a.*?href="(.*?)".*?>(.*?)<\/a>/s', $service_block, $button_match);
+          $button_link = isset($button_match[1]) ? $button_match[1] : '';
+          $button_text = isset($button_match[2]) ? $button_match[2] : 'Read More';
+
+          // Set the card color class
+          $card_class = $card_colors[$color_index % count($card_colors)];
+          $color_index++;
+      ?>
+
+      <div class="service-card <?php echo esc_attr($card_class); ?>">
+        <h3><?php echo esc_html($title); ?></h3>
+        <p><?php echo esc_html($paragraph); ?></p>
+        <a href="<?php echo esc_url($button_link); ?>" class="btn"><?php echo esc_html($button_text); ?></a>
       </div>
-      <div class="service-card service-pvg">
-        <h3>PVG Scheme Record</h3>
-        <p>Community Link Childcare is registered with PVG Scheme record to process enhanced disclosures for childcare employees.</p>
-        <a href="<?php echo get_permalink( get_page_by_path('contact') ); ?>" class="btn">Contact Us</a>
-      </div>
-      <div class="service-card service-pool">
-        <h3>Relief Pool of Flexible Childcare Staff</h3>
-        <p>As part of our services for childcare providers we operate a flexible relief pool of childcare staff who are registered to work in any childcare setting.</p>
-        <a href="<?php echo get_permalink( get_page_by_path('contact') ); ?>" class="btn">Contact Us</a>
-      </div>
-      <div class="service-card service-creche">
-        <h3>Crèche Services</h3>
-        <p>Each crèche package can be tailored to suit your wedding or event. We can also organise refreshments and baby change facilities so that you are free to completely enjoy your day.</p>
-        <a href="<?php echo get_permalink( get_page_by_path('contact') ); ?>" class="btn">Contact Us</a>
-      </div>
+
+      <?php endforeach; ?>
+
     </div>
   </div>
-
-
 </section>
+
+<?php 
+    endif;
+endif;
+?>
