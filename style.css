@@ -602,27 +602,69 @@ section + section {
 
 /* ========== News Section ========== */
 
-.news-swiper {
-    width: 100%;
-    padding: 2em 0;
+/* ========== News Section (Scroll-Snap Carousel) ========== */
+
+/* Scroll container */
+.news-carousel {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory; /* Enables snapping effect */
+    -webkit-overflow-scrolling: touch; /* For smooth scrolling on iOS */
+    padding-bottom: 20px; /* Space for dots and potential scrollbar */
+    scrollbar-width: thin; /* For Firefox */
+    scrollbar-color: var(--color-coral) rgba(0, 0, 0, 0.1); /* For Firefox */
+    gap: 20px; /* Space between cards */
+    margin: 0 -15px; /* Adjust if your .container has horizontal padding */
+    padding-left: 15px; /* Align first card properly */
+    padding-right: 15px; /* Align last card properly */
+    box-sizing: border-box; /* Include padding in element's total width/height */
 }
 
+/* Custom scrollbar for Webkit browsers */
+.news-carousel::-webkit-scrollbar {
+    height: 10px;
+}
 
+.news-carousel::-webkit-scrollbar-track {
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 6px;
+}
+
+.news-carousel::-webkit-scrollbar-thumb {
+    background-color: var(--color-coral);
+    border-radius: 6px;
+}
+
+/* Individual News Cards */
 .news-card {
-    background-color: #fff;
+    flex: 0 0 85%; /* Mobile: Each card takes up 85% of container width */
+    max-width: 350px; /* Max width for individual cards */
+    scroll-snap-align: center; /* Snap to the center of each card */
     border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    overflow: hidden; 
+    overflow: hidden; /* Keep this to prevent image overflow */
+    min-height: 450px;
     display: flex;
-    flex-direction: column; 
-    height: 100%; 
-    transition: transform 0.3s ease;
+    flex-direction: column;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+    color: #000;
+}
+
+.news-card a {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    /* NEW: Use flex to make the link block a flex item */
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 .news-card-image {
     position: relative;
     width: 100%;
-    padding-bottom: 60%; 
+    padding-bottom: 60%;
     overflow: hidden;
 }
 
@@ -632,42 +674,57 @@ section + section {
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover; 
-    border-top-left-radius: 30px; 
-    border-top-right-radius: 30px;
-    padding: 1em;
+    object-fit: cover;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.news-card-image img:hover {
+    transform: scale(1.05);
+}
+
+.news-card-image .placeholder-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80px;
+    height: 80px;
+    color: #444;
 }
 
 .news-card-content {
     padding: 1.5em;
-    flex-grow: 1; 
     display: flex;
     flex-direction: column;
+    flex-grow: 1; /* Allows content to push button to bottom */
 }
 
+/* Rest of the news-card-content child styles remain the same */
 .news-card-title {
     font-family: var(--font-primary);
     font-size: clamp(1.4rem, 2vw, 1.8rem);
     font-weight: 700;
     line-height: 1.3em;
-    margin-bottom: 0.5em;
+    margin: 0 0 0.5em;
     color: #333;
 }
 
 .news-card-meta {
     font-family: var(--font-secondary);
-    font-size: 0.9em;
+    font-size: 0.85em;
     color: #777;
     margin-bottom: 1em;
 }
 
 .news-card-excerpt {
     font-family: var(--font-secondary);
-    font-size: 1rem;
+    font-size: 0.95rem;
     line-height: 1.6;
     color: #555;
     margin-bottom: 1.5em;
-    flex-grow: 1; 
+    flex-grow: 1;
 }
 
 .news-card .read-more-button {
@@ -676,7 +733,7 @@ section + section {
     align-items: center;
     gap: 0.5em;
     margin-top: auto;
-    font-size: 1rem;
+    font-size: 0.95rem;
     font-family: var(--font-primary);
     font-weight: 600;
     color: var(--color-coral);
@@ -692,46 +749,60 @@ section + section {
     width: 1em;
     height: 1em;
     stroke: currentColor;
+    transition: transform 0.3s ease;
 }
 
-/* Swiper-specific styles */
-.news-swiper .swiper-slide {
+.news-card .read-more-button:hover svg {
+    transform: translateX(5px);
+}
+
+/* Slider Dots Styling */
+.news-carousel-dots {
     display: flex;
     justify-content: center;
-    align-items: center;
-    width: 300px;
-    margin: 1em 0em;
-    
+    margin-top: 20px;
 }
 
-/* Pagination dots style */
-.swiper-pagination-bullet {
+.dot {
+    height: 12px;
+    width: 12px;
+    margin: 0 5px;
+    background-color: #ccc;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.dot.active {
     background-color: var(--color-coral);
-    opacity: 0.5;
-    transition: opacity 0.3s ease;
-    
 }
 
-.swiper-pagination-bullet-active {
-    background-color: var(--color-coral);
-    opacity: 1;
-}
 
-/* Swiper's coverflow effect and 3D shadows */
-.news-swiper .swiper-3d .swiper-slide-shadow-left,
-.news-swiper .swiper-3d .swiper-slide-shadow-right {
-  background-image: none;
-}
-
-/* Adjustments for desktop */
+/* Desktop-specific styles */
 @media (min-width: 768px) {
-    .news-swiper {
-        padding-bottom: 0;
+    .news-carousel {
+        /* On desktop, keep scroll-snap-type: x mandatory; for smooth transitions */
+        overflow-x: hidden; /* Hide the scrollbar visually */
+        padding-left: 0;
+        padding-right: 0;
+        gap: 30px;
+        scroll-snap-type: x mandatory; /* Re-enabled for click-based snapping */
+    }
+
+    .news-card {
+        flex: 0 0 300px;
+        height: 450px;
+        transform: scale(0.9); /* NEW: Start with a smaller scale for the non-active cards */
+        transition: transform 0.3s ease-out, box-shadow 0.3s ease-out; /* Ensure smooth transition */
     }
     
-    .news-swiper .swiper-slide {
-        width: 100%; /* Take up full width in desktop grid */
-        height: auto;
+    .news-card.is-active {
+        transform: scale(1); /* NEW: Pop up to full size (100%) when active */
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+    
+    .news-carousel-dots {
+        display: flex;
     }
 }
 
