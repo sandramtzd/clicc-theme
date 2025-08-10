@@ -10,7 +10,7 @@
             // Query to fetch the 5 most recent posts for the main page carousel
             $args = array(
                 'post_type'      => 'post',
-                'posts_per_page' => 5, // Limit to 5 posts as requested
+                'posts_per_page' => -1, 
                 'orderby'        => 'date',
                 'order'          => 'DESC',
             );

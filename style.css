@@ -609,15 +609,15 @@ section + section {
     display: flex;
     overflow-x: auto;
     scroll-snap-type: x mandatory; /* Enables snapping effect */
-    -webkit-overflow-scrolling: touch; /* For smooth scrolling on iOS */
+    -webkit-overflow-scrolling: touch; 
     padding-bottom: 20px; /* Space for dots and potential scrollbar */
-    scrollbar-width: thin; /* For Firefox */
-    scrollbar-color: var(--color-coral) rgba(0, 0, 0, 0.1); /* For Firefox */
-    gap: 20px; /* Space between cards */
-    margin: 0 -15px; /* Adjust if your .container has horizontal padding */
-    padding-left: 15px; /* Align first card properly */
-    padding-right: 15px; /* Align last card properly */
-    box-sizing: border-box; /* Include padding in element's total width/height */
+    scrollbar-width: thin; 
+    scrollbar-color: var(--color-coral); 
+    gap: 20px; 
+    margin: 0 -15px; 
+    padding-left: 15px; 
+    padding-right: 15px; 
+    box-sizing: border-box; 
 }
 
 /* Custom scrollbar for Webkit browsers */
@@ -655,7 +655,6 @@ section + section {
     text-decoration: none;
     color: inherit;
     display: block;
-    /* NEW: Use flex to make the link block a flex item */
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -675,9 +674,10 @@ section + section {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
     transition: transform 0.3s ease;
+    padding: 1em;
 }
 
 .news-card-image img:hover {
@@ -713,14 +713,14 @@ section + section {
 
 .news-card-meta {
     font-family: var(--font-secondary);
-    font-size: 0.85em;
+    font-size: 0.9em;
     color: #777;
     margin-bottom: 1em;
 }
 
 .news-card-excerpt {
     font-family: var(--font-secondary);
-    font-size: 0.95rem;
+    font-size: 1rem;
     line-height: 1.6;
     color: #555;
     margin-bottom: 1.5em;
@@ -782,22 +782,26 @@ section + section {
 @media (min-width: 768px) {
     .news-carousel {
         /* On desktop, keep scroll-snap-type: x mandatory; for smooth transitions */
-        overflow-x: hidden; /* Hide the scrollbar visually */
+        overflow-x: auto; 
         padding-left: 0;
         padding-right: 0;
         gap: 30px;
-        scroll-snap-type: x mandatory; /* Re-enabled for click-based snapping */
+        scroll-snap-type: x mandatory; 
+    }
+
+    .news-carousel ::-webkit-scrollbar {
+       display: none;
     }
 
     .news-card {
         flex: 0 0 300px;
         height: 450px;
-        transform: scale(0.9); /* NEW: Start with a smaller scale for the non-active cards */
+        transform: scale(0.9); 
         transition: transform 0.3s ease-out, box-shadow 0.3s ease-out; /* Ensure smooth transition */
     }
     
     .news-card.is-active {
-        transform: scale(1); /* NEW: Pop up to full size (100%) when active */
+        transform: scale(1); 
         box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
     }
     

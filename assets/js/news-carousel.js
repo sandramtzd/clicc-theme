@@ -9,62 +9,87 @@ document.addEventListener('DOMContentLoaded', () => {
     const cards = carousel.querySelectorAll('.news-card');
     const dots = dotsContainer.querySelectorAll('.dot');
     
-    // We need to get the gap value from the CSS
-    const carouselStyles = window.getComputedStyle(carousel);
-    const gap = parseFloat(carouselStyles.getPropertyValue('gap'));
-
-    const updateActiveState = () => {
-        if (cards.length === 0) return;
-
-        let activeIndex = 0;
-        const scrollLeft = carousel.scrollLeft;
+    // A single function to manage the active state of cards and dots.
+    const setActiveState = (index) => {
+        dots.forEach(dot => dot.classList.remove('active'));
+        cards.forEach(card => card.classList.remove('is-active'));
         
-        // Find the card that is most centered in the viewport
-        let minDistance = Infinity;
-        cards.forEach((card, index) => {
-            const cardCenter = card.offsetLeft - scrollLeft + (card.offsetWidth / 2);
-            const carouselCenter = carousel.offsetWidth / 2;
-            const distance = Math.abs(cardCenter - carouselCenter);
-
-            if (distance < minDistance) {
-                minDistance = distance;
-                activeIndex = index;
-            }
-        });
-
-        // Update active dot
-        dots.forEach((dot, index) => {
-            dot.classList.toggle('active', index === activeIndex);
-        });
-
-        // Update active card class for the pop-out effect on desktop
-        if (window.innerWidth >= 768) {
-            cards.forEach((card, index) => {
-                card.classList.toggle('is-active', index === activeIndex);
-            });
+        if (dots[index]) {
+            dots[index].classList.add('active');
+        }
+        
+        if (window.innerWidth >= 768 && cards[index]) {
+            cards[index].classList.add('is-active');
         }
     };
 
-    // Add scroll event listener to update active state
-    carousel.addEventListener('scroll', updateActiveState);
+    // A reliable check to see if a card is fully visible in the carousel's viewport
+    const isCardFullyVisible = (card) => {
+        const carouselRect = carousel.getBoundingClientRect();
+        const cardRect = card.getBoundingClientRect();
 
-    // Add click event listeners to dots
+        return (
+            cardRect.left >= carouselRect.left &&
+            cardRect.right <= carouselRect.right
+        );
+    };
+
+
+    // The click event listener now includes a check to scroll if necessary
     dots.forEach((dot, index) => {
-        dot.addEventListener('click', () => {
-            const cardElement = cards[index];
-            if (cardElement) {
-                // Calculate the scroll position to center the card, accounting for the gap
-                const scrollLeftPosition = cardElement.offsetLeft - (carousel.offsetWidth / 2) + (cardElement.offsetWidth / 2);
-
-                carousel.scrollTo({
-                    left: scrollLeftPosition,
-                    behavior: 'smooth'
-                });
-            }
+            dot.addEventListener('click', () => {
+                setActiveState(index);
+                
+                const cardElement = cards[index];
+                if (cardElement) {
+                    // For desktop, check if the card is not fully visible, then scroll
+                    if (window.innerWidth >= 768) {
+                        if (!isCardFullyVisible(cardElement)) {
+                            // Calculate the scroll position to align the card to the left
+                            const scrollLeftPosition = cardElement.offsetLeft - carousel.offsetLeft;
+                            
+                            carousel.scrollTo({
+                                left: scrollLeftPosition,
+                                behavior: 'smooth'
+                            });
+                        }
+                    } else { // For mobile, always scroll on click
+                        const scrollLeftPosition = cardElement.offsetLeft - carousel.offsetLeft;
+                        carousel.scrollTo({
+                            left: scrollLeftPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
         });
+
+    // The scroll listener remains to update the dots when a user manually scrolls on mobile
+    carousel.addEventListener('scroll', () => {
+        if (window.innerWidth < 768) {
+            let activeIndex = 0;
+            let minDistance = Infinity;
+            const scrollLeft = carousel.scrollLeft;
+            const carouselCenter = scrollLeft + (carousel.offsetWidth / 2);
+
+            cards.forEach((card, index) => {
+                const cardCenter = card.offsetLeft + (card.offsetWidth / 2);
+                const distance = Math.abs(cardCenter - carouselCenter);
+
+                if (distance < minDistance) {
+                    minDistance = distance;
+                    activeIndex = index;
+                }
+            });
+            setActiveState(activeIndex);
+        }
     });
 
-    // Initial call and on window resize
-    updateActiveState();
-    window.addEventListener('resize', updateActiveState);
+    // Initial call to set the active state of the first card/dot on page load.
+    setActiveState(0);
+    
+    // Handle resizing to re-evaluate the active state.
+    window.addEventListener('resize', () => {
+        setActiveState(0);
+    });
 });
