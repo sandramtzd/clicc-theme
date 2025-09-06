@@ -129,4 +129,14 @@ if ( ! function_exists( 'community_link_childcare_reading_time' ) ) {
     }
 }
 
+function clicc_theme_enqueue_styles() {
+    wp_enqueue_style(
+        'clicc-google-fonts',
+        'https://fonts.googleapis.com/css2?family=Catamaran:wght@400;600&family=Montserrat:wght@400;700&display=swap',
+        false
+    );
+    wp_enqueue_style('clicc-style', get_stylesheet_uri());
+}
+add_action('wp_enqueue_scripts', 'clicc_theme_enqueue_styles');
+
 
